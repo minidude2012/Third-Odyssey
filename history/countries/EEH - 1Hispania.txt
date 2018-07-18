@@ -1,0 +1,5 @@
+government = despotic_monarchy
+primary_culture = catalan
+religion = catholic
+technology_group = western
+capital = 220 # Valencia

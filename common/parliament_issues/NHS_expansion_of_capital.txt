@@ -1,0 +1,34 @@
+NHS_expansion_of_capital = {
+
+	category = 6
+
+	allow = {
+		
+OR = {
+ government = senatorial_empire
+ government = elysian_patriarchy
+}
+
+		capital_scope = {
+			has_province_modifier = nhs2_capital_emigration
+		}
+	}
+	
+	effect = {
+		capital_scope = {
+			remove_province_modifier = nhs2_capital_emigration
+		}
+	}
+	
+	modifier = {
+		legitimacy = 0.25
+	}
+	
+	chance = {
+		factor = 100 # Always available if possible
+	}
+
+	ai_will_do = {
+		factor = 1	
+	}	
+}

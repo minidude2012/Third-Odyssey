@@ -1,0 +1,1991 @@
+country_decisions = {
+	##Decisions to improve nation and remove nerfs
+
+	seek_to_establish_trade_deal_ely = {
+		potential = {
+			OR = {
+				tag = NHS
+				tag = ELY
+			}
+			has_global_flag = nhs_vov_no_deal
+			NOT = { has_country_modifier = nhs_broken_trade_deal }
+			NOT = { has_country_modifier = nhs_vov_recently_proposed_trade }
+			NOT = {
+				trading_with_markland = yes
+				trading_with_helluland = yes
+				trading_with_vinland = yes
+			}
+			OR = {
+				exists = VIN
+				exists = MRK
+				exists = HLL
+			
+			}
+		}
+		allow = {
+			if = {
+				limit = {
+					exists = MRK
+					exists = HLL
+					exists = VIN
+				}
+				OR = {
+					AND = {
+						OR = {
+							alliance_with = MRK
+							MRK = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							MRK = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+					AND = {
+						OR = {
+							alliance_with = HLL
+							HLL = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							HLL = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+					AND = {
+						OR = {
+							alliance_with = VIN
+							VIN = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							VIN = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					exists = MRK
+					exists = VIN
+				}
+				OR = {
+					AND = {
+						OR = {
+							alliance_with = MRK
+							MRK = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							MRK = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+					AND = {
+						OR = {
+							alliance_with = VIN
+							VIN = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							VIN = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					exists = HLL
+					exists = VIN
+				}
+				OR = {
+					AND = {
+						OR = {
+							alliance_with = HLL
+							HLL = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							HLL = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+					AND = {
+						OR = {
+							alliance_with = VIN
+							VIN = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							VIN = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					exists = MRK
+					exists = HLL
+				}
+				OR = {
+					AND = {
+						OR = {
+							alliance_with = MRK
+							MRK = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							MRK = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+					AND = {
+						OR = {
+							alliance_with = HLL
+							HLL = {
+								is_subject_of = ROOT
+							}
+						}
+						OR = {
+							HLL = { has_opinion = { who = ROOT value = 100 } }
+							dip = 4
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					exists = MRK
+				}
+				AND = {
+					OR = {
+						alliance_with = MRK
+						MRK = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						MRK = { has_opinion = { who = ROOT value = 100 } }
+						dip = 4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					exists = HLL
+				}
+				AND = {
+					OR = {
+						alliance_with = HLL
+						HLL = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						HLL = { has_opinion = { who = ROOT value = 100 } }
+						dip = 4
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					exists = VIN
+				}
+				AND = {
+					OR = {
+						alliance_with = VIN
+						VIN = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						VIN = { has_opinion = { who = ROOT value = 100 } }
+						dip = 4
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				add_country_modifier = {
+					name = nhs_vov_recently_proposed_trade
+					duration = 3650
+					hidden = yes
+				}
+				if = {
+					limit = { 
+						exists = MRK
+					}
+					MRK = {
+						add_country_modifier = {
+							name = nhs_vov_recently_proposed_trade
+							duration = 3650
+							hidden = yes
+						}
+					}
+				}
+				if = {
+					limit = { 
+						exists = HLL
+					}
+					HLL = {
+						add_country_modifier = {
+							name = nhs_vov_recently_proposed_trade
+							duration = 3650
+							hidden = yes
+						}
+					}
+				}
+				if = {
+					limit = { 
+						exists = VIN
+					}
+					VIN = {
+						add_country_modifier = {
+							name = nhs_vov_recently_proposed_trade
+							duration = 3650
+							hidden = yes
+						}
+					}
+				}
+			}
+			country_event = { id = nhs_vov_coloniesevents.19 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	##
+	seek_to_establish_trade_deal_vikings = {
+		potential = {
+			OR = {
+				tag = MRK
+				tag = HLL
+				tag = VIN
+			}
+			NOT = { has_country_modifier = nhs_vov_trade_deal }
+			NOT = { has_country_modifier = nhs_broken_trade_deal }
+			NOT = { has_country_modifier = nhs_vov_recently_proposed_trade }
+			OR = {
+				has_global_flag = nhs_vov_no_deal
+				AND = {
+					tag = MRK
+					trading_with_helluland = yes
+				}
+				AND = {
+					tag = HLL
+					trading_with_markland = yes
+				}
+			}
+			OR = {
+				exists = NHS
+				exists = ELY
+			}
+		}
+		allow = {
+			if = {
+				limit = {
+					exists = NHS
+					NOT = { exists = ELY }
+				}
+				AND = {
+					exists = NHS
+					alliance_with = NHS
+					OR = {
+						NHS = { has_opinion = { who = ROOT value = 100 } }
+						dip = 4
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = ELY
+				}
+				AND = {
+					exists = ELY
+					alliance_with = ELY
+					OR = {
+						ELY = { has_opinion = { who = ROOT value = 100 } }
+						dip = 4
+					}
+				}
+			}
+		}
+		effect = {
+			hidden_effect = {
+				add_country_modifier = {
+					name = nhs_vov_recently_proposed_trade
+					duration = 3650
+					hidden = yes
+				}
+				if = {
+					limit = { 
+						exists = ELY
+					}
+					ELY = {
+						add_country_modifier = {
+							name = nhs_vov_recently_proposed_trade
+							duration = 3650
+							hidden = yes
+						}
+					}
+				}
+				if = {
+					limit = { 
+						exists = NHS
+					}
+					NHS = {
+						add_country_modifier = {
+							name = nhs_vov_recently_proposed_trade
+							duration = 3650
+							hidden = yes
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = NHS
+				}
+				NHS = { country_event = { id = nhs_vov_coloniesevents.18 days = 1 } }
+			}
+			if = {
+				limit = {
+					exists = ELY
+				}
+				ELY = { country_event = { id = nhs_vov_coloniesevents.18 days = 1 } }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				AND = {
+					tag = MRK
+					trading_with_helluland = yes
+					OR = {
+						AND = {
+							exists = ELY
+							HLL = { has_opinion = { who = ELY value = 0 }}
+						}
+						AND = {
+							exists = NHS
+							HLL = { has_opinion = { who = NHS value = 0 }}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					tag = HLL
+					trading_with_markland = yes
+					OR = {
+						AND = {
+							exists = ELY
+							MRK = { has_opinion = { who = ELY value = 0 }}
+						}
+						AND = {
+							exists = NHS
+							MRK = { has_opinion = { who = NHS value = 0 }}
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { tag = VIN }
+					trading_with_vinland = yes
+					OR = {
+						AND = {
+							exists = ELY
+							VIN = { has_opinion = { who = ELY value = 0 }}
+						}
+						AND = {
+							exists = NHS
+							VIN = { has_opinion = { who = NHS value = 0 }}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	## 
+	vin_break_trade_deal_vikings = {
+		potential = {
+			OR = {
+				tag = MRK
+				tag = HLL
+				tag = VIN
+			}
+			has_country_modifier = nhs_vov_trade_deal
+			NOT = { has_country_modifier = nhs_vov_recently_proposed_trade }
+		}
+		allow = {
+			if = {
+				limit = {
+					exists = NHS
+					NOT = { exists = ELY }
+				}
+				is_subject_of = NHS
+				NOT = { alliance_with = NHS }
+				OR = {
+					NOT = {
+						NHS = { has_opinion = { who = ROOT value = 50 } }
+					}
+					dip = 4
+				}
+			}
+			if = {
+				limit = {
+					exists = ELY
+				}
+				is_subject_of = ELY
+				NOT = { alliance_with = ELY }
+				OR = {
+					NOT = {
+						ELY = { has_opinion = { who = ROOT value = 50 } }
+					}
+					dip = 4
+				}
+			}
+		}
+		effect = {
+			set_global_flag = nhs_vov_no_deal
+			remove_country_modifier = nhs_vov_trade_deal
+			add_country_modifier = {
+				name = nhs_broken_trade_deal
+				duration = 3650
+			}
+			if = {
+				limit = {
+					exists = NHS
+				}
+				NHS = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			if = {
+				limit = {
+					exists = ELY
+				}
+				ELY = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			hidden_effect = {
+				every_country = {
+					country_event = { id = nhs_vov_coloniesevents.27 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				AND = {
+					exists = NHS
+					NHS = { has_opinion = { who = ROOT value = 0 } }
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					exists = ELY
+					ELY = { has_opinion = { who = ROOT value = 0 } }
+				}
+			}
+		}
+	}
+	
+	##
+	vin_break_trade_deal_ely = {
+		potential = {
+			OR = {
+				tag = NHS
+				tag = ELY
+			}
+			NOT = { has_country_modifier = nhs_vov_recently_proposed_trade }
+			OR = {
+				trading_with_markland = yes
+				trading_with_helluland = yes
+				trading_with_vinland = yes
+			}
+		}
+		allow = {
+			stability = 1
+			if = {
+				limit = {
+					trading_with_markland = yes
+				}
+				MRK = { NOT = { is_subject_of = ROOT } }
+				NOT = { alliance_with = MRK }
+				OR = {
+					NOT = {
+						MRK = { has_opinion = { who = ROOT value = 0 } }
+					}
+					dip = 4
+				}
+			}
+			if = {
+				limit = {
+					trading_with_helluland = yes
+				}
+				HLL = { NOT = { is_subject_of = ROOT } }
+				NOT = { alliance_with = HLL }
+				OR = {
+					NOT = {
+						HLL = { has_opinion = { who = ROOT value = 0 } }
+					}
+					dip = 4
+				}
+			}
+			if = {
+				limit = {
+					trading_with_vinland = yes
+				}
+				VIN = { NOT = { is_subject_of = ROOT } }
+				NOT = { alliance_with = VIN }
+				OR = {
+					NOT = {
+						VIN = { has_opinion = { who = ROOT value = 0 }}
+					}
+					dip = 4
+				}
+			}
+		}
+		effect = {
+			set_global_flag = nhs_vov_no_deal
+			add_stability = -1
+			add_prestige = -10
+			if = {
+				limit = {
+					NOT = { has_global_flag = nhs_vov_trade_reduced }
+				}
+				add_stability = -1
+				add_prestige = -10
+				add_legitimacy = -10
+			}
+			add_country_modifier = {
+				name = nhs_broken_trade_deal
+				duration = 3650
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_vov_markland_deal
+				}
+				remove_country_modifier = nhs_vov_markland_deal
+				MRK = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_vov_helluland_deal
+				}
+				remove_country_modifier = nhs_vov_helluland_deal
+				HLL = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_vov_vinland_deal
+				}
+				remove_country_modifier = nhs_vov_vinland_deal
+				VIN = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_vov_markland_deal_after
+				}
+				remove_country_modifier = nhs_vov_markland_deal_after
+				MRK = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_vov_helluland_deal_after
+				}
+				remove_country_modifier = nhs_vov_helluland_deal_after
+				HLL = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_vov_vinland_deal_after
+				}
+				remove_country_modifier = nhs_vov_vinland_deal_after
+				VIN = { add_opinion = { who = ROOT modifier = nhs_broken_trade } }
+			}
+			hidden_effect = {
+				every_country = {
+					country_event = { id = nhs_vov_coloniesevents.25 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					has_country_modifier = nhs_vov_markland_deal
+					has_country_modifier = nhs_vov_helluland_deal
+					has_country_modifier = nhs_vov_vinland_deal
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					has_country_modifier = nhs_vov_markland_deal_after
+					MRK = { has_opinion = { who = ROOT value = 0 } }
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					has_country_modifier = nhs_vov_helluland_deal_after
+					HLL = { has_opinion = { who = ROOT value = 0 } }
+				}
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					has_country_modifier = nhs_vov_vinland_deal_after
+					VIN = { has_opinion = { who = ROOT value = 0 } }
+				}
+			}
+		}
+	}
+	
+	#Establish a proper merchant center
+	vin_merchant_center = {
+		major = yes
+		potential = {
+			has_country_modifier = nhs_vov_no_merchant
+			OR = {
+				knows_country = NHS
+				knows_country = ELY
+			}
+		}
+		allow = {
+			dip_power = 200
+			stability = 1
+			OR = {
+				is_year = 1465
+				advisor = trader
+				dip = 4
+				capital_scope = { has_building = marketplace }
+			}
+		}
+		effect = {
+			remove_country_modifier = nhs_vov_no_merchant
+			add_dip_power = -100
+			capital_scope = {
+				add_permanent_province_modifier = {
+					name = "center_of_trade_modifier"
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	
+	}
+	#Regulate colonization effort
+	vin_colonization = {
+		major = yes
+		potential = {
+			OR = {
+				tag = MRK
+				tag = VIN
+				tag = HLL
+			}
+			OR = {
+				has_country_modifier = nhs_vov_population
+				NOT = { has_country_modifier = nhs_vov_organized_expansion }
+			}
+			OR = {
+				is_year = 1490
+				tag = VIN
+			}
+		}
+		allow = {
+			has_institution = new_world_i
+			treasury = 100
+			OR = {
+				full_idea_group = exploration_ideas
+				full_idea_group = expansion_ideas
+				full_idea_group = development_ideas
+				full_idea_group = discovery_ideas
+				full_idea_group = domination_ideas
+			}
+		}
+		effect = {
+			remove_country_modifier = nhs_vov_population
+			add_country_modifier = {
+				name = "nhs_vov_organized_expansion"
+				duration = -1
+			}
+			add_treasury = -100
+			add_adm_power = -25
+			add_dip_power = 50
+			add_mil_power = -25
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Reform the Norse religion
+	vin_reform_norse = {
+		major = yes
+		potential = {
+			OR = {
+				primary_culture = norse
+				primary_culture = vinlandic
+			}
+			religion = norse_pagan_reformed
+			NOT = { has_global_flag = nhs_vov_reformed_norse }
+			
+		}
+		allow = {
+			tag = VIN
+			adm_power = 100
+			stability = 1
+			is_core = 980
+			is_core = 997
+			is_core = 994
+			OR = {
+				is_year = 1500
+				adm = 4
+				advisor = theologian
+				capital_scope = { has_building = temple }
+			}
+		}
+		effect = {
+			add_adm_power = -100
+			add_stability = 1
+			capital_scope = {
+				add_permanent_province_modifier = {
+					name = "nhs_vov_irminsul"
+					duration = -1
+				}
+			}
+			980 = {
+				add_permanent_province_modifier = {
+					name = "nhs_vov_irminsul"
+					duration = -1
+				}
+			}
+			2575 = {
+				add_permanent_province_modifier = {
+					name = "nhs_vov_irminsul"
+					duration = -1
+				}
+			}
+			country_event = { id = nhs_vov_althingevents.30 }
+			hidden_effect = {
+				set_global_flag = nhs_vov_reformed_norse
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+
+	##
+	#Form Vinland
+	vin_found_vinland = {
+		major = yes
+		potential = {
+			is_playing_custom_nation = no
+			NOT = { exists = VIN }
+			OR = {
+				primary_culture = norse
+				primary_culture = vinlandic
+			}
+		}
+		allow = {
+			is_subject = no
+			owns_core_province = 994
+			OR = {
+				AND = {
+					tag = MRK
+					NOT = { exists = HLL }
+				}
+				AND = {
+					tag = HLL
+					NOT = { exists = MRK }
+				}
+				AND = {
+					owns_core_province  = 980
+					owns_core_province  = 997
+				}
+			}
+			NOT = {
+				has_country_modifier = nhs_vov_no_merchant
+			}
+		}
+		effect = {
+			tooltip = {
+				change_tag = VIN
+				swap_free_idea_group = yes
+				country_event = { id = nhs_vov_althingevents.1 }
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			
+			add_prestige = 25
+			add_stability = 1
+			
+			hidden_effect = {
+				if = {
+					limit = {
+						NOT = { primary_culture = norse }
+					}
+					change_primary_culture = vinlandic
+				}
+			}
+			if = {
+				limit = {
+					has_country_modifier = nhs_vov_urge_for_conquest
+				}
+				remove_country_modifier = nhs_vov_urge_for_conquest
+			}
+			if = {
+				limit = {
+					tag = MRK
+					exists = HLL
+				}
+				HLL = {
+					every_owned_province = {
+						cede_province = ROOT
+					}
+				}
+			}
+			if = {
+				limit = {
+					tag = HLL
+					exists = MRK
+				}
+				MRK = {
+					every_owned_province = {
+						cede_province = ROOT
+					}
+				}
+			}
+			clr_country_flag = nhs_conquest_mrk
+			clr_country_flag = nhs_conquest_hll
+			hidden_effect = {
+				if = {
+					limit = {
+						has_country_modifier = nhs_vov_trade_deal
+						NOT = {
+							trading_with_vinland = yes
+						}
+					}
+					if = {
+						limit = {
+							exists = ELY
+						}
+						ELY = {
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_markland_deal
+								}
+								remove_country_modifier = nhs_vov_markland_deal
+							}
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_helluland_deal
+								}
+								remove_country_modifier = nhs_vov_helluland_deal
+							}
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_markland_deal_after
+								}
+								remove_country_modifier = nhs_vov_markland_deal_after
+							}
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_helluland_deal_after
+								}
+								remove_country_modifier = nhs_vov_helluland_deal_after
+							}
+							if = {
+								limit = {
+									NOT = { has_global_flag = nhs_vov_trade_reduced }
+								}
+								add_country_modifier = {
+									name = nhs_vov_vinland_deal
+									duration = -1
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = nhs_vov_trade_reduced
+								}
+								add_country_modifier = {
+									name = nhs_vov_vinland_deal
+									duration = -1
+								}
+							}
+						}
+					}
+					if = {
+						limit = {
+							exists = NHS
+						}
+						NHS = {
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_markland_deal
+								}
+								remove_country_modifier = nhs_vov_markland_deal
+							}
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_helluland_deal
+								}
+								remove_country_modifier = nhs_vov_helluland_deal
+							}
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_markland_deal_after
+								}
+								remove_country_modifier = nhs_vov_markland_deal_after
+							}
+							if = {
+								limit = {
+									has_country_modifier = nhs_vov_helluland_deal_after
+								}
+								remove_country_modifier = nhs_vov_helluland_deal_after
+							}
+							if = {
+								limit = {
+									NOT = { has_global_flag = nhs_vov_trade_reduced }
+								}
+								add_country_modifier = {
+									name = nhs_vov_vinland_deal
+									duration = -1
+								}
+							}
+							if = {
+								limit = {
+									has_global_flag = nhs_vov_trade_reduced
+								}
+								add_country_modifier = {
+									name = nhs_vov_vinland_deal
+									duration = -1
+								}
+							}
+						}
+					}
+				}
+				every_country = {
+					clr_country_flag = nhs_conquest_tar_mrk
+				}
+				every_country = {
+					clr_country_flag = nhs_conquest_tar_hll
+				}
+				change_tag = VIN
+				swap_free_idea_group = yes
+				change_government = althing_republic
+				country_event = { id = nhs_vov_althingevents.1 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+
+	#Modernise 
+	vin_modernise = {
+		major = yes
+		potential = {
+			OR = {
+				technology_group = viking
+			}
+			is_year = 1500
+			any_known_country = {
+				capital_scope = { continent = europe }
+			}
+		}
+		
+		allow = {
+			technology_group = viking
+			OR = {
+				any_neighbor_country = {
+					OR = {
+						technology_group = modern_greek
+						technology_group = modern_spartan
+						technology_group = modern_vinlandic
+						technology_group = western
+					}
+				}
+				is_year = 1510
+			}
+			is_at_war = no
+			stability = 1
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+		}
+
+		effect = {
+			change_technology_group = modern_vinlandic
+			if = {
+				limit = {
+					NOT = { unit_type = norse_unit }
+				}
+				change_unit_type = norse_unit
+			}
+			custom_tooltip = nhs_renesiance_spread
+			add_stability = -1
+			add_adm_power = -50
+			add_dip_power = -50
+			add_mil_power = -50
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+	#Build the Whalebone Palace
+	vin_whalebone_palace = {
+		major = yes
+		potential = {
+			tag = VIN
+			994 = {
+				NOT = { has_province_modifier = nhs_vov_whalebone_palace }
+			}
+			994 = {
+				NOT = { has_province_modifier = nhs_vov_whalebone_palace_decay }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			owns_core_province = 994
+			is_at_war = no
+			stability = 1
+			adm_power = 50
+			treasury = 150
+		}
+		effect = {
+			994 = {
+				add_permanent_province_modifier = {
+					name = "nhs_vov_whalebone_palace"
+					duration = -1
+				}
+				add_base_tax = 2
+				add_base_manpower = 1
+			}
+			add_adm_power = -50
+			add_treasury = -150
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Build the Great Port
+	vin_great_port = {
+		major = yes
+		potential = {
+			tag = VIN
+			is_year = 1580
+			994 = {
+				NOT = { has_province_modifier = nhs_vov_great_port }
+			}
+			994 = {
+				NOT = { has_province_modifier = nhs_vov_great_port_decay }
+			}
+			2578 = {
+				NOT = { has_province_modifier = nhs_vov_great_port }
+			}
+			2578 = {
+				NOT = { has_province_modifier = nhs_vov_great_port_decay }
+			}
+			NOT = {
+				has_global_flag = nhs_vov_great_port_choice
+			}
+		}
+		allow = {
+
+			is_at_war = no
+			dip_power = 100
+			treasury = 400
+			OR = {
+				owns_core_province = 994
+				owns_core_province = 2578
+			}
+			dip_tech = 10
+		}
+		effect = {
+			country_event = {
+				id = flavor_vov.43
+			}
+			set_global_flag = nhs_vov_great_port_choice
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Build a great castle at the Holly Waterfall
+	vin_jomsborg_castle = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					tag = JOM
+					owns_core_province = 944
+				}
+				AND = {
+					tag = VIN
+					JOM = {
+						march_of = VIN
+						owns_core_province = 944
+					}
+				}
+			}
+			944 = {
+				NOT = {
+					has_province_modifier = nhs_vov_jomsborg_fort
+					has_province_modifier = nhs_vov_jomsborg_fort_decay
+				}
+			}
+			is_year = 1600
+		} 
+		allow = {
+			is_at_war = no
+			mil_power = 100
+			treasury = 400
+			mil_tech = 10
+		}
+		effect = {
+			944 = {
+				add_permanent_province_modifier = { 
+					name = "nhs_vov_jomsborg_fort"
+					duration = -1
+				}
+				add_base_tax = 1
+				add_base_manpower = 2
+			}
+			add_mil_power = -100
+			add_treasury = -400
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	##Rebuild Events
+	#Rebuild the Whalebone Palace
+	vin_whalebone_palace_rebuild = {
+		major = yes
+		potential = {
+			tag = VIN
+			owns_core_province = 994
+				994 = {
+					has_province_modifier = nhs_vov_whalebone_palace_decay
+				}
+
+		}
+		allow = {
+
+			is_at_war = no
+			stability = 1
+			adm_power = 100
+			treasury = 300
+			adm_tech = 10
+		}
+		effect = {
+			994 = {
+				add_permanent_province_modifier = {
+					name = "nhs_vov_whalebone_palace"
+					duration = -1
+				}
+				remove_province_modifier = nhs_vov_whalebone_palace_decay
+				add_base_tax = 2
+				add_base_manpower = 1
+			}
+			add_adm_power = -100
+			add_treasury = -400
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	#Rebuild the Great Port
+	vin_great_port_rebuild = {
+		major = yes
+		potential = {
+			tag = VIN
+			is_year = 1580
+			OR = {
+				994 = {
+					has_province_modifier = nhs_vov_great_port_decay
+				}
+				2578 = {
+					has_province_modifier = nhs_vov_great_port_decay
+				}
+			}
+		}
+		allow = {
+
+			is_at_war = no
+			dip_power = 100
+			treasury = 400
+			OR = {
+				owns_core_province = 994
+				owns_core_province = 2578
+			}
+			dip_tech = 10
+		}
+		effect = {
+			add_treasury = -500
+			add_dip_power = -100
+			every_owned_province = {
+				limit = {
+					has_province_modifier = nhs_vov_great_port_decay
+				}
+				remove_province_modifier = nhs_vov_great_port_decay
+					add_permanent_province_modifier = {
+					name = "nhs_vov_great_port"
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	nhs_vov_gunpowder_decision = {
+		major = yes
+		potential = {
+			always = no #Disabled
+			OR = {
+				technology_group = viking
+				technology_group = modern_vinlandic
+			}
+			NOT = { has_country_flag = nhs_acces_gunpowder_secrets }
+			any_known_country = {
+				OR = {
+					technology_group = western
+					technology_group = eastern
+					technology_group = ottoman
+				}
+			}
+		}
+
+		allow = {
+			OR = {
+				any_country = {
+					OR = {
+						technology_group = western
+						technology_group = eastern
+						technology_group = ottoman
+					}
+					OR = {
+						alliance_with = ROOT
+						has_opinion = { who = ROOT value = 150 }
+						any_owned_province = {
+							any_neighbor_province = {
+								owned_by = ROOT
+							}
+						}
+					}
+				}
+				AND = {
+					is_year = 1570
+					any_known_country = {
+						OR = {
+							technology_group = western
+							technology_group = eastern
+							technology_group = ottoman
+						}
+					}
+				}
+			}
+		}
+
+		effect = {
+			add_country_modifier = {
+				name = nhs_adopting_gunpowder
+				duration = -1
+			}
+			set_country_flag = nhs_acces_gunpowder_secrets
+			if = {
+				limit = {
+					ai = no
+				}
+				add_mil_power = -100
+				add_years_of_income = -0.2
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Rebuild the great castle at the Holy Waterfall
+	vin_jomsborg_castle_rebuild = {
+		major = yes
+		potential = {
+			OR = {
+				AND = {
+					tag = JOM
+					owns_core_province = 944
+				}
+				AND = {
+					tag = VIN
+					JOM = {
+						march_of = VIN
+						owns_core_province = 944
+					}
+				}
+			}
+			944 = {
+				has_province_modifier = nhs_vov_jomsborg_fort_decay
+			}
+			is_year = 1600
+		} 
+		allow = {
+			is_at_war = no
+			mil_power = 100
+			treasury = 400
+			mil_tech = 10
+		}
+		effect = {
+			944 = {
+				remove_province_modifier = nhs_vov_jomsborg_fort_decay
+				add_permanent_province_modifier = { 
+					name = "nhs_vov_jomsborg_fort"
+					duration = -1
+				}
+				add_base_tax = 1
+				add_base_manpower = 2
+			}
+			add_mil_power = -100
+			add_treasury = -400
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+	
+	#Erect a Runestone in your honor
+		
+	#Found the Varangian Guard
+	vin_varangian_guard = {
+		major = yes
+		potential = {
+			OR = {
+				tag = ELY
+				tag = NHS
+			}
+			has_country_modifier = nhs2_varangian_influnce_m
+			NOT = { has_country_flag = nhs_v_d_p }
+			NOT = { has_country_flag = nhs_varangian_estates }
+			NOT = { has_country_flag = nhs_varangian_guard_substate }
+		}
+		allow = {
+			is_at_war = no
+			treasury = 120
+			OR = {
+				owns = 957
+				owns = 965
+				owns = 2010
+				owns = 968
+			}
+		}
+		effect = {
+			add_treasury = -100
+			country_event = { id = nhs_vov_varangian_order_events.6 }
+			set_country_flag = nhs_v_d_p
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	#Move Varangian Guard to Malta
+	vin_varangian_guard_malta = {
+		major = yes
+		potential = {
+			OR = {
+				tag = ELY
+				tag = NHS
+			}
+			has_country_flag = nhs_settle_v_on_malta
+			NOT = { has_country_flag = nhs_v_settled_on_malta }
+		}
+		allow = {
+			owns = 126
+			is_at_war = no
+			if = {
+				limit = {
+					126 = {
+						has_province_modifier = nhs2_supply_lines
+					}
+				}
+				any_owned_province = {
+					has_port = yes
+					OR = {
+						province_id = 1247
+						province_id = 127
+						province_id = 2986
+						province_id = 124
+						province_id = 125
+						province_id = 2982
+						province_id = 333
+						province_id = 163
+						province_id = 321
+						province_id = 142
+						province_id = 164
+						province_id = 2348
+						region = maghreb_region
+						area = cap_verde_area
+						province_id = 1114
+						province_id = 1111
+						province_id = 367
+						province_id = 368
+						province_id = 366
+					}
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					exists = VGD
+				}
+				set_country_flag = nhs_v_settled_on_malta
+				clr_country_flag = nhs_varangian_pending
+				remove_country_modifier = nhs2_varangian_influnce_m
+				126 = {
+					cede_province = VGD
+					add_core = VGD
+					change_culture = varangian_n
+					change_religion = ROOT
+				}
+				every_province = {
+					limit = {
+						owned_by = VGD
+						NOT = { province_id = 126 }
+					}
+					cede_province = ROOT
+					add_core = ROOT
+				}
+				every_province = {
+					limit = {
+						is_core = VGD
+						NOT = { province_id = 126 }
+					}
+					remove_core = VGD
+				}
+				
+			}
+			else = {
+				set_country_flag = nhs_v_settled_on_malta
+				clr_country_flag = nhs_varangian_pending
+				remove_country_modifier = nhs2_varangian_influnce_m
+				tooltip = {
+					126 = {
+						cede_province = VGD
+						add_core = VGD
+						change_culture = varangian_n
+						change_religion = ROOT
+					}
+					create_subject = {
+						subject_type = elysian_subject_varangian
+						subject = VGD
+					}
+				}
+				
+				hidden_effect = {
+					126 = {
+						add_core = VGD
+						ROOT = {
+							release = VGD
+						}
+						change_culture = varangian_n
+						change_religion = ROOT
+						if = {
+							limit = {
+								is_core = ROOT
+							}
+							remove_core = ROOT
+						}
+						VGD = {
+							set_capital = 126
+							change_religion = ROOT
+							change_primary_culture = varangian_n
+							change_government = varangian_guard
+						}
+						ROOT = {
+							create_subject = {
+								subject_type = elysian_subject_varangian
+								subject = VGD
+							}
+						}
+					}
+					VGD = {
+						if = {
+							limit = {
+								technology_group = exiled_greek
+							}
+							change_technology_group = viking
+							
+						}
+						else_if = {
+							limit = {
+								technology_group = modern_greek
+							}
+							change_technology_group = modern_vinlandic
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				every_province = {
+					limit = {
+						has_discovered = ROOT
+					}
+					discover_country = VGD
+				}
+				while = {
+					limit = {
+						any_province = {
+							NOT = { province_id = 126 }
+							OR = {
+								infantry_in_province = VGD
+								cavalry_in_province = VGD
+								artillery_in_province = VGD
+							}
+						}
+					}
+					if = {
+						limit = {
+							any_province = {
+								NOT = { province_id = 126 }
+								infantry_in_province = VGD
+							}
+						}
+						random_province = {
+							limit = {
+								NOT = { province_id = 126 }
+								infantry_in_province = VGD
+							}
+							kill_units = {
+								who = VGD
+								amount = 1
+							}
+						}
+						126 = {
+							infantry = VGD
+						}
+					}
+					else_if = {
+						limit = {
+							any_province = {
+								NOT = { province_id = 126 }
+								cavalry_in_province = VGD
+							}
+						}
+						random_province = {
+							limit = {
+								NOT = { province_id = 126 }
+								cavalry_in_province = VGD
+							}
+							kill_units = {
+								who = VGD
+								amount = 1
+							}
+						}
+						126 = {
+							cavalry = VGD
+						}
+					}
+					else_if = {
+						limit = {
+							any_province = {
+								NOT = { province_id = 126 }
+								artillery_in_province = VGD
+							}
+						}
+						random_province = {
+							limit = {
+								NOT = { province_id = 126 }
+								artillery_in_province = VGD
+							}
+							kill_units = {
+								who = VGD
+								amount = 1
+							}
+						}
+						126 = {
+							artillery = VGD
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					126 = {
+						has_province_modifier = nhs2_supply_lines
+					}
+				}
+				126 = {
+					remove_province_modifier = nhs2_supply_lines
+				}
+				random_owned_province = {
+					limit = {
+						has_port = yes
+						OR = {
+							province_id = 1247
+							province_id = 127
+							province_id = 2986
+							province_id = 124
+							province_id = 125
+							province_id = 2982
+							province_id = 333
+							province_id = 163
+							province_id = 321
+							province_id = 142
+							province_id = 164
+							province_id = 2348
+							region = maghreb_region
+							area = cap_verde_area
+							province_id = 1114
+							province_id = 1111
+							province_id = 367
+							province_id = 368
+							province_id = 366
+						}
+					}
+					add_province_modifier = {
+						name = "nhs2_supply_lines"
+						duration = -1
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	#Conquer of Europe Decisions
+#	nhs_vin_conquer_ireland = {
+#		major = yes
+#		potential = {
+#			tag = VIN
+#			OR = {
+#				eastern_ireland_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#				western_ireland_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#			}
+#			dip_tech = 12
+#			NOT = { has_country_flag = nhs_vin_conquered_ireland }
+#		}
+#		allow = {
+#			owns_or_vassal_of = 373
+#			custom_trigger_tooltip = {
+#				tooltip = nhs_vin_ireland
+#				calc_true_if = {
+#					all_province = {
+#						OR = {
+#							owned_by = ROOT
+#							owner = {
+#								is_subject_of = ROOT
+#							}
+#						}
+#						OR = {
+#							area = eastern_ireland_area
+#							area = western_ireland_area
+#						}
+#					}
+#					amount = 5
+#				}
+#			}
+#			NOT = { active_major_mission = vin_conquer_ireland }
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = "military_victory"
+#				duration = 3650
+#			}
+#			eastern_ireland_area = {
+#				limit = {
+#					NOT = { is_core = ROOT }
+#				}
+#				add_permanent_claim = ROOT
+#			}
+#			western_ireland_area = {
+#				limit = {
+#					NOT = { is_core = ROOT }
+#				}
+#				add_permanent_claim = ROOT
+#			}
+#			set_country_flag = nhs_vin_conquered_ireland
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#
+#	nhs_vin_conquer_scotland = {
+#		major = yes
+#		potential = {
+#			tag = VIN
+#			OR = {
+#				lowlands_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#				highlands_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#			}
+#			dip_tech = 12
+#			NOT = { has_country_flag = nhs_vin_conquered_scotland }
+#		}
+#		allow = {
+#			owns_or_vassal_of = 253
+#			custom_trigger_tooltip = {
+#				tooltip = nhs_vin_scotland
+#				calc_true_if = {
+#					all_province = {
+#						OR = {
+#							owned_by = ROOT
+#							owner = {
+#								is_subject_of = ROOT
+#							}
+#						}
+#						OR = {
+#							area = lowlands_area
+#							area = highlands_area
+#						}
+#					}
+#					amount = 4
+#				}
+#			}
+#			NOT = { active_major_mission = vin_conquer_scotland }
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = "military_victory"
+#				duration = 3650
+#			}
+#			lowlands_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			highlands_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			subarctic_islands_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			set_country_flag = nhs_vin_conquered_scotland
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	
+#	nhs_vin_conquer_england = {
+#		major = yes
+#		potential = {
+#			tag = VIN
+#			OR = {
+#				mercia_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#				wessex_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#				east_anglia_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#				northern_england_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#				wales_area = {
+#					range = ROOT
+#					has_discovered = ROOT
+#				}
+#			}
+#			dip_tech = 12
+#			NOT = { has_country_flag = nhs_vin_conquered_england }
+#		}
+#		allow = {
+#			owns_or_vassal_of = 236
+#			owns_or_vassal_of = 245
+#			custom_trigger_tooltip = {
+#				tooltip = nhs_vin_england
+#				calc_true_if = {
+#					all_province = {
+#						OR = {
+#							owned_by = ROOT
+#							owner = {
+#								is_subject_of = ROOT
+#							}
+#						}
+#						OR = {
+#							area = mercia_area
+#							area = wessex_area
+#							area = east_anglia_area
+#							area = northern_england_area
+#							area = wales_area
+#						}
+#					}
+#					amount = 10
+#				}
+#			}
+#			NOT = { active_major_mission = vin_conquer_england }
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = "military_victory"
+#				duration = 3650
+#			}
+#			mercia_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			wessex_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			east_anglia_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			northern_england_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			wales_area = {
+#				add_permanent_claim = ROOT
+#			}
+#			set_country_flag = nhs_vin_conquered_england
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	
+#	nhs_vin_conquer_scandinavia = {
+#		major = yes
+#		potential = {
+#			tag = VIN
+#			tag = VIN
+#			any_province = {
+#				region = scandinavia_region
+#				NOT = { area = iceland_area }
+#				NOT = { area = subarctic_islands_area }
+#				NOT = { area = greenland_area }
+#				NOT = { area = karelia_area }
+#				NOT = { area = north_karelia }
+#				NOT = { area = laponia_area }
+#				NOT = { area = finland_area }
+#				NOT = { area = bothnia_area }
+#				range = ROOT
+#			}
+#			dip_tech = 12
+#			NOT = { has_country_flag = nhs_vin_conquered_scandinavia }
+#		}
+#		allow = {
+#			owns = 1
+#			owns = 12
+#			owns = 17
+#			custom_trigger_tooltip = {
+#				tooltip = nhs_vin_scandinavia
+#				calc_true_if = {
+#					all_province = {
+#						OR = {
+#							owned_by = ROOT
+#							owner = {
+#								is_subject_of = ROOT
+#							}
+#						}
+#						region = scandinavia_region
+#						NOT = { area = iceland_area }
+#						NOT = { area = subarctic_islands_area }
+#						NOT = { area = greenland_area }
+#						NOT = { area = karelia_area }
+#						NOT = { area = north_karelia }
+#						NOT = { area = laponia_area }
+#						NOT = { area = finland_area }
+#						NOT = { area = bothnia_area }
+#					}
+#					amount = 40
+#				}
+#			}
+#			NOT = { active_major_mission = vin_conquer_scandinavia }
+#		}
+#		effect = {
+#			add_country_modifier = {
+#				name = "military_victory"
+#				duration = 3650
+#			}
+#			custom_tooltip = nhs_vin_scandinavia_reward1
+#			hidden_effect = {
+#				every_province = {
+#					limit = {
+#						region = scandinavia_region
+#						NOT = { area = iceland_area }
+#						NOT = { area = subarctic_islands_area }
+#						NOT = { area = greenland_area }
+#						NOT = { area = karelia_area }
+#						NOT = { area = north_karelia }
+#						NOT = { area = laponia_area }
+#						NOT = { area = finland_area }
+#						NOT = { area = bothnia_area }
+#					}
+#					add_permanent_claim = ROOT
+#				}
+#			}
+#			custom_tooltip = nhs_vin_scandinavia_reward2
+#			hidden_effect = {
+#				every_province = {
+#					limit = {
+#						OR = {
+#							area = laponia_area
+#							area = finland_area
+#							area = bothnia_area
+#						}
+#					}
+#					add_claim = ROOT
+#				}
+#			}
+#			set_country_flag = nhs_vin_conquered_scandinavia
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
+}

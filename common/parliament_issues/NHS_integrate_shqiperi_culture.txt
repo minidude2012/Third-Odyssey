@@ -1,0 +1,43 @@
+NHS_integrate_shqiperi_culture = {
+
+	category = 6
+
+	allow = {
+		
+		OR = {
+			government = senatorial_empire
+			government = elysian_patriarchy
+		}
+
+		OR = {
+			SHQ = { vassal_of = ROOT }
+			AND = {
+				NOT = { exists = SHQ }
+				any_owned_province = {
+					has_province_modifier = nhs2_albanian_majority
+					culture = shqiperi
+				}
+			}
+		}
+		NOT = { has_country_flag = nhs_senate_integrate_shqiperi }
+	}
+	
+	effect = {
+		add_legitimacy = -10
+		# FLAG -> one time use, unlocks options/events
+		custom_tooltip = nhs_senate_integrate_shqiperi_tt
+		set_country_flag = nhs_senate_integrate_shqiperi
+	}
+	
+	chance = {
+		factor = 100000000 # Always available if possible
+	}
+	
+	modifier = {
+		legitimacy = -0.5
+	}
+
+	ai_will_do = {
+		factor = 1
+	}
+}

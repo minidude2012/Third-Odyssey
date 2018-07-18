@@ -1,0 +1,5 @@
+government = despotic_monarchy
+technology_group = western
+primary_culture = english
+religion = protestant
+capital = 236	# London

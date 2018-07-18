@@ -1,0 +1,36 @@
+spriteTypes =
+{
+	spriteType = 
+	{
+		name = "GFX_faction_bg_vin_vikingr"
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}
+	spriteType = 
+	{
+		name = "GFX_faction_vin_vikingr"
+		texturefile = "gfx//interface//vikingr.tga"
+	}
+	spriteType = 
+	{
+		name = "GFX_faction_bg_vin_farmadr"
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}
+	spriteType = 
+	{
+		name = "GFX_faction_vin_farmadr"
+		texturefile = "gfx//interface//farmadr.tga"
+	}
+	spriteType = 
+	{
+		name = "GFX_faction_bg_vin_gothar"
+		texturefile = "gfx//interface//faction_blue_frame.tga"
+		transparencecheck = yes
+	}
+	spriteType = 
+	{
+		name = "GFX_faction_vin_gothar"
+		texturefile = "gfx//interface//gothar.tga"
+	}
+}

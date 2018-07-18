@@ -1,0 +1,70 @@
+###################################################################################################################
+#####                                                                                                         #####
+#####                                                    Elysia                                               #####
+#####                                                                                                         #####
+###################################################################################################################
+
+entity = { clone = "greekgfx_INFANTRY_1"		name = "NHS_INFANTRY_1" }
+entity = { clone = "greekgfx_CAVALRY_1" 		name = "NHS_CAVALRY_1"  }
+entity = { clone = "greekgfx_ARTILLERY_1" 		name = "NHS_ARTILLERY_1"  }
+entity = { clone = "greekgfx_INFANTRY_2"		name = "NHS_INFANTRY_2" }
+entity = { clone = "greekgfx_CAVALRY_2" 		name = "NHS_CAVALRY_2"  }
+entity = { clone = "greekgfx_ARTILLERY_2" 		name = "NHS_ARTILLERY_2"  }
+entity = { clone = "greekgfx_INFANTRY_3"		name = "NHS_INFANTRY_3" }
+entity = { clone = "greekgfx_CAVALRY_3" 		name = "NHS_CAVALRY_3"  }
+entity = { clone = "greekgfx_ARTILLERY_3" 		name = "NHS_ARTILLERY_3"  }
+entity = { clone = "greekgfx_INFANTRY_4"		name = "NHS_INFANTRY_4" }
+entity = { clone = "greekgfx_CAVALRY_4" 		name = "NHS_CAVALRY_4"  }
+entity = { clone = "greekgfx_ARTILLERY_4" 		name = "NHS_ARTILLERY_4"  }
+
+entity = { clone = "greekgfx_INFANTRY_1"		name = "ELY_INFANTRY_1" }
+entity = { clone = "greekgfx_CAVALRY_1" 		name = "ELY_CAVALRY_1"  }
+entity = { clone = "greekgfx_ARTILLERY_1" 		name = "ELY_ARTILLERY_1"  }
+entity = { clone = "greekgfx_INFANTRY_2"		name = "ELY_INFANTRY_2" }
+entity = { clone = "greekgfx_CAVALRY_2" 		name = "ELY_CAVALRY_2"  }
+entity = { clone = "greekgfx_ARTILLERY_2" 		name = "ELY_ARTILLERY_2"  }
+entity = { clone = "greekgfx_INFANTRY_3"		name = "ELY_INFANTRY_3" }
+entity = { clone = "greekgfx_CAVALRY_3" 		name = "ELY_CAVALRY_3"  }
+entity = { clone = "greekgfx_ARTILLERY_3" 		name = "ELY_ARTILLERY_3"  }
+entity = { clone = "greekgfx_INFANTRY_4"		name = "ELY_INFANTRY_4" }
+entity = { clone = "greekgfx_CAVALRY_4" 		name = "ELY_CAVALRY_4"  }
+entity = { clone = "greekgfx_ARTILLERY_4" 		name = "ELY_ARTILLERY_4"  }
+
+entity = { clone = "greekgfx_INFANTRY_1"		name = "CTM_INFANTRY_1" }
+entity = { clone = "greekgfx_CAVALRY_1" 		name = "CTM_CAVALRY_1"  }
+entity = { clone = "greekgfx_ARTILLERY_1" 		name = "CTM_ARTILLERY_1"  }
+entity = { clone = "greekgfx_INFANTRY_2"		name = "CTM_INFANTRY_2" }
+entity = { clone = "greekgfx_CAVALRY_2" 		name = "CTM_CAVALRY_2"  }
+entity = { clone = "greekgfx_ARTILLERY_2" 		name = "CTM_ARTILLERY_2"  }
+entity = { clone = "greekgfx_INFANTRY_3"		name = "CTM_INFANTRY_3" }
+entity = { clone = "greekgfx_CAVALRY_3" 		name = "CTM_CAVALRY_3"  }
+entity = { clone = "greekgfx_ARTILLERY_3" 		name = "CTM_ARTILLERY_3"  }
+entity = { clone = "greekgfx_INFANTRY_4"		name = "CTM_INFANTRY_4" }
+entity = { clone = "greekgfx_CAVALRY_4" 		name = "CTM_CAVALRY_4"  }
+entity = { clone = "greekgfx_ARTILLERY_4" 		name = "CTM_ARTILLERY_4"  }
+
+entity = { clone = "greekgfx_INFANTRY_1"		name = "MSG_INFANTRY_1" }
+entity = { clone = "greekgfx_CAVALRY_1" 		name = "MSG_CAVALRY_1"  }
+entity = { clone = "greekgfx_ARTILLERY_1" 		name = "MSG_ARTILLERY_1"  }
+entity = { clone = "greekgfx_INFANTRY_2"		name = "MSG_INFANTRY_2" }
+entity = { clone = "greekgfx_CAVALRY_2" 		name = "MSG_CAVALRY_2"  }
+entity = { clone = "greekgfx_ARTILLERY_2" 		name = "MSG_ARTILLERY_2"  }
+entity = { clone = "greekgfx_INFANTRY_3"		name = "MSG_INFANTRY_3" }
+entity = { clone = "greekgfx_CAVALRY_3" 		name = "MSG_CAVALRY_3"  }
+entity = { clone = "greekgfx_ARTILLERY_3" 		name = "MSG_ARTILLERY_3"  }
+entity = { clone = "greekgfx_INFANTRY_4"		name = "MSG_INFANTRY_4" }
+entity = { clone = "greekgfx_CAVALRY_4" 		name = "MSG_CAVALRY_4"  }
+entity = { clone = "greekgfx_ARTILLERY_4" 		name = "MSG_ARTILLERY_4"  }
+
+entity = { clone = "greekgfx_INFANTRY_1"		name = "SHQ_INFANTRY_1" }
+entity = { clone = "greekgfx_CAVALRY_1" 		name = "SHQ_CAVALRY_1"  }
+entity = { clone = "greekgfx_ARTILLERY_1" 		name = "SHQ_ARTILLERY_1"  }
+entity = { clone = "greekgfx_INFANTRY_2"		name = "SHQ_INFANTRY_2" }
+entity = { clone = "greekgfx_CAVALRY_2" 		name = "SHQ_CAVALRY_2"  }
+entity = { clone = "greekgfx_ARTILLERY_2" 		name = "SHQ_ARTILLERY_2"  }
+entity = { clone = "greekgfx_INFANTRY_3"		name = "SHQ_INFANTRY_3" }
+entity = { clone = "greekgfx_CAVALRY_3" 		name = "SHQ_CAVALRY_3"  }
+entity = { clone = "greekgfx_ARTILLERY_3" 		name = "SHQ_ARTILLERY_3"  }
+entity = { clone = "greekgfx_INFANTRY_4"		name = "SHQ_INFANTRY_4" }
+entity = { clone = "greekgfx_CAVALRY_4" 		name = "SHQ_CAVALRY_4"  }
+entity = { clone = "greekgfx_ARTILLERY_4" 		name = "SHQ_ARTILLERY_4"  }

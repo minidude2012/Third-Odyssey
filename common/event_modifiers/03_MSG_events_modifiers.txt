@@ -1,0 +1,283 @@
+
+nhs_msg_handicap_settlers = {
+	global_colonial_growth = -50
+	naval_forcelimit_modifier = -0.30
+	global_ship_recruit_speed = 1.0
+	global_ship_cost = 1.0
+	colonists = -2
+}
+
+nhs_msg_modern_spartan = {
+	technology_cost = 0.10
+}
+
+msg_itza_construction = {
+	prestige= 0.1
+	local_manpower_modifier= -0.15
+}
+
+msg_itza_reconstructed = {
+	prestige= 0.1
+	legitimacy= 0.5
+}
+msg_teno_ruins = {
+	local_manpower_modifier = -0.2
+	local_production_efficiency = -0.2
+	local_tax_modifier = -0.2
+	local_unrest = 2.5
+}
+msg_teno_repairs = {
+	local_manpower_modifier = -0.15
+	local_production_efficiency = -0.15
+	local_tax_modifier = -0.15
+	prestige = 0.1
+	picture = "production_efficiency"
+}
+
+msg_teno_repaired = {
+	land_forcelimit_modifier = 0.1
+	local_production_efficiency = 0.2
+	local_manpower_modifier = 0.2
+	local_tax_modifier = 0.2
+	local_unrest = -1
+	prestige = 0.1
+	legitimacy = 0.5
+	picture = "production_efficiency"
+}
+
+msg_teno_expanding = {
+	local_manpower_modifier = -0.30
+	local_production_efficiency = -0.15
+	local_tax_modifier = -0.50
+	local_unrest = 1
+	local_manpower_modifier = -0.5
+	picture = "production_efficiency"
+}
+
+msg_floating_city = {
+	land_forcelimit_modifier = 0.2
+	local_production_efficiency = 0.4
+	local_manpower_modifier = 0.4
+	local_tax_modifier = 0.4
+	local_unrest = -1
+	prestige = 0.1
+	legitimacy = 0.5
+	picture = "production_efficiency"
+}
+
+msg_mictlan_construction = {
+	local_production_efficiency = -0.5
+	local_unrest = 5
+	prestige = -0.5
+	picture = "production_efficiency"
+}
+msg_mictlan_city = {
+	local_unrest = 2
+	local_production_efficiency = 0.5
+	picture = "production_efficiency"
+}
+msg_tikal_repair = {
+	local_production_efficiency = -0.5
+	local_manpower_modifier = -0.5
+	local_tax_modifier = -0.5
+}
+msg_tikal_start = {
+	local_production_efficiency = -0.2
+	local_manpower_modifier = -0.2
+	local_tax_modifier = -0.2
+	prestige = 0.1
+}
+msg_tikal_continue = {
+	local_production_efficiency = -0.5
+	local_manpower_modifier = -0.5
+	local_tax_modifier = -0.5
+}
+msg_tikal_repaired = {
+	local_production_efficiency = 0.25
+	local_tax_modifier = 0.25
+}
+msg_oracle_before = {
+	global_missionary_strength = 0.02
+	religion = yes
+	
+}
+msg_oracle_after = {
+	global_missionary_strength = 0.01
+	idea_cost = -0.05
+	religion = yes
+}
+msg_banibaan_castle = {
+	local_defensiveness = 0.1
+	local_manpower_modifier = 0.1
+	regiment_recruit_speed = -0.1
+}
+msg_palenque_repair = {
+	local_production_efficiency = -0.5
+	local_unrest = 5
+	prestige = -0.25
+}
+msg_palenque_investigation = {
+	prestige = 0.25
+}
+msg_palenque_settled = {
+	local_production_efficiency = 0.2
+	prestige = 0.1
+}
+msg_ares_worship = {
+	army_tradition = 0.5
+	land_morale = 0.05
+	free_leader_pool = 1
+	stability_cost_modifier = 0.05
+	religion = yes
+}
+
+msg_tlaloc_worship = {
+	navy_tradition = 0.5
+	free_leader_pool = 1
+	production_efficiency = 0.10
+	stability_cost_modifier = -0.10
+	religion = yes
+}
+
+msg_oracle_good = {
+	prestige = 0.01
+	production_efficiency = 0.1
+	inflation_action_cost = -0.1
+	global_tax_modifier = 0.05
+	religion = yes
+}
+msg_oracle_neutral = {
+	prestige_decay = -0.01
+	religion = yes
+}
+
+msg_oracle_bad = {
+	prestige = -0.05
+	production_efficiency = -0.1
+	inflation_action_cost = 0.1
+	global_tax_modifier = -0.05
+	religion = yes
+}
+msg_oracle_lycurgus = {
+	global_unrest = -5
+	culture_conversion_cost = -0.25
+	religion = yes
+}
+msg_great_pyramid = {
+	global_missionary_strength = 0.01
+	local_missionary_strength = -0.05
+}
+msg_great_pantheon = {
+	global_missionary_strength = 0.01
+	local_missionary_strength = -0.05
+}
+msg_great_cathedral = {
+	global_missionary_strength = 0.01
+	local_missionary_strength = -0.05
+}
+msg_agoge = {
+	local_manpower = 0.05
+	local_manpower_modifier = 0.2
+	regiment_recruit_speed = -0.1
+	garrison_growth = 0.05
+	local_defensiveness = 0.05
+}
+msg_heartland_agoge = {
+	local_manpower = 0.01
+	local_manpower_modifier = 0.4
+	regiment_recruit_speed = -0.2
+	garrison_growth = 0.1
+	local_defensiveness = 0.1
+}
+
+msg_lycurgus_school = {
+	idea_cost = -0.10
+	technology_cost = -0.10
+	prestige = 0.1
+	discipline = 0.05
+	advisor_pool = 1
+}
+msg_pitz_stadium = {
+	infantry_cost = -0.1
+	infantry_power = 0.1
+	local_unrest = -1
+}
+
+#Decay
+
+msg_lycurgus_school_decay = {
+	local_unrest = 0.5
+}
+msg_heartland_agoge_decay = {
+	local_unrest = 0.5
+}
+msg_agoge_decay = {
+	local_unrest = 0.5
+}
+msg_great_cathedral_decay = {
+	local_unrest = 0.5
+}
+msg_great_pantheon_decay = {
+	local_unrest = 0.5
+}
+msg_great_pyramid_decay = {
+	local_unrest = 0.5
+}
+msg_pitz_stadium_decay = {
+	local_unrest = 0.5
+}
+msg_teno_repaired_decay = {
+	local_production_efficiency = 0.1
+	local_manpower_modifier = 0.1
+	local_tax_modifier = 0.1
+	prestige = 0.1
+	legitimacy = 0.1
+	picture = "production_efficiency"
+}
+msg_floating_city_decay = {
+	local_production_efficiency = 0.2
+	local_manpower_modifier = 0.2
+	local_tax_modifier = 0.2
+	prestige = 0.1
+	legitimacy = 0.1
+	picture = "production_efficiency"
+}
+nhs2_ruthless_spartans = {
+	tolerance_own = 2
+	tolerance_heathen = -1
+}
+nhs2_tolerant_spartans = {
+	tolerance_heathen = 1
+	tolerance_heretic = 1
+}
+
+# Timer
+msg_timer_game = {
+}
+nhs2_oracle_cooldown = {
+}
+
+msg_this_is_spartakon = {
+	prestige = 0.hnts
+	legitimacy = 0.1
+	stability_cost_modifier = -0.25
+}
+
+msg_completed_join_aztlan_mission = {
+	global_missionary_strength = 0.01
+	religious_unity = 0.15
+}
+
+msg_completed_skythian_line_mission_province = {
+	fort_level = 1
+	garrison_growth = 2
+	local_hostile_movement_speed = 0.5
+	local_hostile_attrition = 5
+}
+
+msg_completed_into_kyklades_mission_province = {
+	local_ship_cost = -0.2
+	local_ship_repair = 0.2
+	ship_recruit_speed = 0.25
+	garrison_growth = 2
+}

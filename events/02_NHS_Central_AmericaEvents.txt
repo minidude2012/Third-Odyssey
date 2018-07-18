@@ -1,0 +1,733 @@
+# First event
+country_event = {
+	id = 222201
+	title = nhs_msg_events1.t
+	desc = nhs_msg_events1.d
+	picture = SHIP_SAILING_eventPicture
+
+    trigger = {
+		any_province = {
+			mesoamerican_landing_provinces = yes
+			owner = {
+				technology_group = mesoamerican
+			}
+		}
+		OR = {
+			tag = NHS
+			tag = ELY
+		}
+		OR = {
+			primary_culture = elysian
+			culture_group = elysian_group
+		}
+		NOT = { exists = MSG }
+		NOT = { exists = MSN }
+		NOT = {
+			any_province = {
+				OR = {
+					is_core = MSG
+					is_core = MSN
+				}
+			}
+		}
+		NOT = { has_global_flag = nhs_msg_gone }
+		NOT = { has_global_flag = nhs_msg_prohibited }
+		OR = {
+			NOT = { has_country_flag = nhs_msg_postponed1 }
+			had_country_flag = { flag = nhs_msg_postponed1 days = 365 }
+		}
+		OR = {
+			NOT = { has_country_flag = nhs_msg_postponed2 }
+			had_country_flag = { flag = nhs_msg_postponed2 days = 365 }
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 36
+		modifier = {
+			factor = 0.9
+			stability = 1
+		}
+		modifier = {
+			factor = 0.9
+			stability = 2
+		}
+		modifier = {
+			factor = 0.9
+			stability = 3
+		}
+		modifier = {
+			factor = 0.9
+			army_tradition = 30
+		}
+		modifier = {
+			factor = 0.8
+			army_tradition = 50
+		}
+		modifier = {
+			factor = 0.75
+			army_tradition = 75
+		}
+		modifier = {
+			factor = 0.75
+			exploration_ideas = 3
+		}
+	}
+
+	option = {
+		name = "nhs_msg_events1.a"
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0.01
+				NOT = { treasury = -100 }
+			}
+		}
+		custom_tooltip = nhs2_msg_supplies
+		add_manpower = -10
+		add_treasury = -150
+		hidden_effect = {
+			country_event = { id = 222202 days = 15 }
+		}
+		set_global_flag = nhs_msg_given_help
+		set_global_flag = nhs_msg_gone
+	}
+	option = {
+		name = "nhs_msg_events1.b" #Offer him your blessing (you cheap bastard)
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 5
+				NOT = { treasury = -100 }
+			}
+			modifier = {
+				factor = 3
+				NOT = { prestige = 0 }
+			}
+		}
+		add_prestige = 5
+		set_global_flag = nhs_msg_gone
+		hidden_effect = {
+			country_event = { id = 222202 days = 20 }
+		}
+	}
+	option = {
+		name = "nhs_msg_events1.c"
+		ai_chance = {
+			factor = 0
+		}
+		trigger = {
+			NOT = { has_country_flag = nhs_msg_postponed2 }
+		}
+		set_country_flag = nhs_msg_postponed1
+		custom_tooltip = nhs2_msg_delay
+		if = {
+			limit = {
+				has_country_flag = nhs_msg_postponed1
+			}
+			set_country_flag = nhs_msg_postponed2
+			clr_country_flag = nhs_msg_postponed1
+		}
+		hidden_effect = {
+			country_event = { id = 222201 days = 366 }
+		}
+	}
+	#option = {
+	#	name = "nhs_msg_events1.e" #Prohibit him from going
+	#	add_prestige = 10
+	#	add_legitimacy = 5
+	#	set_global_flag = nhs_msg_prohibited
+	#}
+}
+
+
+# Go Spartans
+country_event = {
+	id = 222202
+	title = nhs_msg_events2.t
+	desc = nhs_msg_events2.d
+	picture = DIPLOMACY_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		set_global_flag = nhs_msg_spartans_in_mesoamerica
+		hidden_effect = {
+			discover_province = 1501
+			discover_province = 1502
+			discover_province = 1503
+			discover_province = 1504
+			discover_province = 1505
+			discover_province = 1506
+			discover_province = 1507
+			discover_province = 1508
+			discover_province = 2647
+			discover_province = 2630
+			discover_province = 2631
+			discover_province = 2650
+			discover_province = 845
+			discover_province = 2651
+			discover_province = 2633
+			discover_province = 2652
+			discover_province = 2634
+			discover_province = 2632
+			discover_province = 1509
+			discover_province = 1510
+			discover_province = 1511
+			random_province = {
+					limit = {
+						mesoamerican_landing_provinces = yes
+						owner = {
+							technology_group = mesoamerican
+						}
+					}
+					owner = {
+						set_country_flag = nhs_msg_spartans_landed_here
+						if = {
+							limit = {
+								num_of_cities = 2
+							}
+							country_event = { id = 222210 }
+						}
+						if = {
+							limit = {
+								num_of_cities = 1
+								NOT = { num_of_cities = 2 }
+							}
+							set_global_flag = nhs_msg_opm
+						}
+						kill_units = {
+							who = PREV
+							type = infantry
+						}
+					}
+					set_province_flag = nhs_msg_original_capital
+					add_institution_embracement = {
+						which = "feudalism"
+						value = 100
+					}
+					add_core = MSG
+					set_province_flag = nhs_msg_original_heartland
+					cede_province = ROOT
+					add_base_tax = 3
+					add_base_production = 2
+					add_base_manpower = 4
+					add_building = fort_15th
+
+					if = {
+						limit = {
+							has_global_flag = nhs_msg_given_help
+						}
+						add_base_tax = 2
+						add_base_production = 1
+						add_base_manpower = 2
+					}
+				}
+			every_province = {
+					limit = {
+						any_neighbor_province = { has_province_flag = nhs_msg_original_capital }
+					}
+					set_province_flag = nhs_msg_original_heartland
+				}
+			every_province = {
+					limit = {
+						has_province_flag = nhs_msg_original_heartland
+					}
+					add_core = MSG
+				}
+			release = MSG
+			MSG = {
+				change_technology_group = exiled_spartan
+				change_unit_type = exiled_spartan
+				change_government = spartan_army
+				#manpower buff removed, now gained through missions
+				change_primary_culture = ROOT
+				change_religion = ROOT
+				add_country_modifier = {
+					name = "nhs_msg_handicap_settlers"
+					duration = -1
+					}
+				every_owned_province = {
+					change_culture = ROOT
+					change_religion = ROOT
+				}
+				central_america_region = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				eastern_mexico_area = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				mexico_area = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				michoacan_area = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				guerrero_area = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				oaxaca_area = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				jalisco_area = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				gran_chichimeca_area = {
+					every_country = {
+						limit = { tag = MSG }
+						discover_province = PREV
+					}
+				}
+				if = {
+					limit = {
+						has_global_flag = nhs_msg_given_help
+					}
+					ROOT = {
+						create_alliance = MSG
+					}
+					add_manpower = 10
+					add_treasury = 150
+					add_mil_power = 100
+					add_dip_power = 100
+					add_adm_power = 100
+					reverse_add_opinion = {
+						who = ROOT
+						modifier = nhs_msg_given_help_opinion
+					}
+					add_opinion = {
+						who = ROOT
+						modifier = nhs_msg_given_help_opinion
+					}
+				}
+				add_treasury = 200
+				add_mil_power = 500
+				add_dip_power = 500
+				add_adm_power = 500
+				capital_scope = { change_province_name = "Laconya" rename_capital = "Neo Sparta" }
+				define_ruler = {
+					name = "Leonidas"
+					dynasty = "Spartakon"
+					adm = 4
+					dip = 2
+					mil = 6
+				}
+				#if = {
+				#	limit = {
+				#		ROOT = {
+				#			has_country_modifier = nhs_noble_cataphracts
+				#		}
+				#	}
+				#	add_country_modifier = {
+				#		name = nhs_noble_cataphracts
+				#		duration = -1
+				#	}
+				#}
+				if = {
+					limit = {
+						ROOT = {
+							has_country_modifier = nhs_high_priests
+						}
+					}
+					add_country_modifier = {
+						name = nhs_high_priests
+						duration = -1
+					}
+				}
+				set_country_flag = nhs_heralds_enabledc
+				if = {
+					limit = {
+						has_global_flag = nhs_msg_opm
+					}
+					country_event = { id = 222204 }
+				}
+				mesoamerica_pgroup = {
+					add_permanent_claim = MSG
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "nhs_msg_events2.a"
+		ai_chance = { factor = 100 }
+		trigger = {
+			NOT = { religion_group = christian }
+		}
+		custom_tooltip = nhs_prevent_vassalisation
+	}
+
+	option = {
+		name = "nhs_msg_events2.b"
+		ai_chance = { factor = 100 }
+		trigger = {
+			religion_group = christian
+		}
+		custom_tooltip = nhs_prevent_vassalisation
+	}
+
+	option = {
+		name = "nhs_msg_events2.c"
+		trigger = {
+			ai = no
+		}
+		ai_chance = { factor = 0 }
+		switch_tag = MSG
+	}
+
+}
+
+
+#Events for natives when spartans land
+country_event = {
+	id = 222210
+	title = nhs_msg_events10.t
+	desc = nhs_msg_events10.d
+	picture = ELYSHIP_eventPicture
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				infantry = ROOT
+				infantry = ROOT
+			}
+		}
+	}
+
+	option = {
+		name = "nhs_msg_events10.a"
+		add_prestige = -10
+		hidden_effect = {
+			MSG = {
+				country_event = { id = 222204 }
+			}
+		}
+	}
+}
+
+#Event for spartans when they land
+country_event = {
+	id = 222204
+	title = nhs_msg_events4.t
+	desc = nhs_msg_events4.d
+	picture = ARMY_CHARGE_eventPicture
+
+	trigger = {
+		OR = {
+			tag = MSG
+			tag = MSN
+		}
+		NOT = { has_country_flag = nhs_msg_land1 }
+		NOT = { has_global_flag = nhs_started_at_bookmark }
+	}
+
+	fire_only_once = yes
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = nhs_msg_land1
+		hidden_effect = {
+			random_owned_province = {
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				infantry = ROOT
+				cavalry = ROOT
+			}
+			add_ruler_modifier = {
+				name = msg_has_leonidas
+				hidden = yes
+			}
+		}
+	}
+
+	option = {
+		name = "nhs_msg_events4.a" #Landing Beach Secured!
+		add_prestige = 10
+		if = {
+			limit = {
+				NOT = { has_global_flag = nhs_msg_opm }
+				is_at_war = no
+			}
+			declare_war_with_cb = {
+				who = FROM
+				casus_belli = cb_core
+			}
+		}
+	}
+}
+
+#6 provinces
+country_event = {
+	id = 222205
+	title = nhs_msg_events5.t
+	desc = nhs_msg_events5.d
+	picture = CITY_VIEW_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = MSG
+			tag = MSN
+		}
+		num_of_cities = 6
+		NOT = { has_country_flag = nhs_msg_land2 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		set_country_flag = nhs_msg_land2
+	}
+
+	option = {
+		name = "nhs_msg_events5.a"
+		add_prestige = 10
+	}
+}
+
+#Many (20) provinces
+country_event = {
+	id = 222206
+	title = nhs_msg_events6.t
+	desc = nhs_msg_events6.d
+	picture = CITY_VIEW_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = MSG
+			tag = MSN
+		}
+		num_of_cities = 20
+		NOT = { has_country_flag = nhs_msg_land3 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	immediate = {
+		set_country_flag = nhs_msg_land3
+	}
+
+	option = {
+		name = "nhs_msg_events6.a"
+		add_prestige = 10
+	}
+}
+
+# Cultural change for Spartans
+country_event = {
+	id = 222211
+	title = nhs_msg_events11.t
+	desc = nhs_msg_events11.d
+	picture = COURT_eventPicture
+
+	trigger = {
+		tag = MSG
+		num_of_cities = 15
+		OR = {
+			primary_culture = elysian
+			culture_group = elysian_group
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	immediate = {
+		hidden_effect = { # Moved so that swap_non_generic_missions works.
+			change_tag = MSN
+		}
+		# Change province cultures
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_flag = nhs_msg_original_heartland
+				}
+				change_culture = pipiltin
+			}
+			every_owned_province = {
+				limit = {
+					NOT = {
+						has_province_flag = nhs_msg_original_heartland
+					}
+					culture = elysian
+					OR = {
+						has_port = yes
+						has_province_modifier = inland_center_of_trade_modifier
+						has_province_modifier = center_of_trade_modifier
+					}
+				}
+				random_list = {
+					70 = { change_culture = pochteca }
+					30 = { change_culture = macehualtin }
+				}
+			}
+
+			every_owned_province = {
+				limit = {
+					NOT = {
+						has_province_flag = nhs_msg_original_heartland
+					}
+					OR = {
+						culture_group = otomanguean
+						culture_group = maya
+						culture_group = central_american
+					}
+					OR = {
+						has_port = yes
+						has_province_modifier = inland_center_of_trade_modifier
+						has_province_modifier = center_of_trade_modifier
+						has_province_modifier = important_natural_harbor
+					}
+				}
+				random_list = {
+					35 = { change_culture = pochteca }
+					15 = { change_culture = macehualtin }
+					50 = { set_province_flag = nhs2_nope_culture_change }
+				}
+			}
+			every_owned_province = {
+				limit = {
+					NOT = {
+						has_province_flag = nhs_msg_original_heartland
+					}
+					culture = elysian
+					has_port = no
+					NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					NOT = { has_province_modifier = center_of_trade_modifier }
+					NOT = { has_province_modifier = important_natural_harbor }
+				}
+				random_list = {
+					10 = { change_culture = pochteca }
+					90 = { change_culture = macehualtin }
+				}
+			}
+
+			every_owned_province = {
+				limit = {
+					NOT = {
+						has_province_flag = nhs_msg_original_heartland
+					}
+					OR = {
+						culture_group = otomanguean
+						culture_group = maya
+						culture_group = central_american
+					}
+					has_port = no
+					NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					NOT = { has_province_modifier = center_of_trade_modifier }
+					NOT = { has_province_modifier = important_natural_harbor }
+
+				}
+				random_list = {
+					50 = { change_culture = macehualtin }
+					50 = { set_province_flag = nhs2_nope_culture_change }
+				}
+			}
+			every_owned_province = {
+				limit = {
+					NOT = {
+						has_province_flag = nhs_msg_original_heartland
+					}
+					OR = {
+						culture_group = otomanguean
+						culture_group = maya
+						culture_group = central_american
+					}
+				}
+				change_culture = tlacotin
+				add_local_autonomy = 10
+			}
+		}
+	}
+	
+	
+
+	option = {		# What will be, will be
+		name = "nhs_msg_events11.a"
+		change_government = spartan_kingdom
+		change_primary_culture = pipiltin
+		add_accepted_culture = pochteca
+		add_accepted_culture = macehualtin
+		remove_country_modifier = nhs_secrets_greekfire
+		remove_country_modifier = nhs_greekfire_update
+		remove_country_modifier = nhs_noble_cataphracts
+		swap_non_generic_missions = yes
+	}
+}
+
+country_event = {
+	id = 222221
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MSG
+		NOT = { government = spartan_army }
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	immediate = {
+		change_government = spartan_army
+	}
+}
+
+country_event = {
+	id = 222222
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		tag = MSN
+		has_global_flag = msg_reforms_done
+		NOT = { government = spartan_sovreignty }
+	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	immediate = {
+		change_government = spartan_sovreignty
+	}
+}

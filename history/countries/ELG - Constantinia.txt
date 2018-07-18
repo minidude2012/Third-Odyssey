@@ -1,0 +1,7 @@
+government = elysian_kingdom
+mercantilism = 20
+primary_culture = greek
+culture_group_union = byzantine
+religion = orthodox
+technology_group = modern_greek
+capital = 146 # Athens

@@ -1,0 +1,1123 @@
+namespace = nhs2_test
+
+# Removes the overseas penalty from Constantinople
+country_event = {
+	id = nhs2_test.1
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		change_primary_culture = high_elysian
+		change_tag = ELY
+		change_government = senatorial_empire
+		hidden_effect = {
+			every_province = {
+				limit = {
+					continent = north_america
+				}
+				cede_province = ROOT
+				change_religion = ROOT
+				add_core = ROOT
+				change_trade_goods = grain
+			}
+		}
+		change_technology_group = modern_greek
+		change_unit_type  = elysian_unit
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.b"
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+						region = maghreb_region
+						region = egypt_region
+					}
+					NOT = { region = arabia_region }
+				}
+				cede_province = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.c"
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						region = maghreb_region
+						region = egypt_region
+					}
+				}
+				cede_province = ROOT
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.d"
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						region = anatolia_region
+						region = balkan_region
+					}
+				}
+				cede_province = ELG
+			}
+		}
+	}
+}
+
+country_event = {
+	id = nhs2_test.2
+	title = nhs2_test.2.t
+	desc = nhs2_test.2.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		set_country_flag = nhs_start_counting_buildings
+		2646 = {
+			if = {
+				limit = {
+					NOT = { 
+						owner = {
+							technology_group = north_american
+						}
+					}
+					continent = north_america
+					NOT = { owned_by = ROOT }
+					is_city = yes
+				}
+				add_building = cathedral
+				add_building = university
+				add_building = grand_shipyard
+				add_building = drydock
+			}
+		}
+		set_variable = {
+			which = nhs_HighTierBuildingCount
+			value = 0
+		}
+	}
+}
+
+country_event = {
+	id = nhs2_test.3
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		change_religion = elysian_orthodoxy
+		hidden_effect = {
+			every_province = {
+				limit = {
+					continent = north_america
+				}
+				cede_province = ROOT
+				change_culture = ROOT
+				change_religion = ROOT
+				add_core = ROOT
+				change_trade_goods = grain
+			}
+		}
+		every_owned_province = {
+			limit = {
+				is_colony = yes
+			}
+			add_colonysize = 1000
+		}
+	}
+	option = {
+		every_owned_province = {
+			add_nationalism = -10
+		}
+	}
+}
+
+country_event = {
+	id = nhs2_test.4
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		change_primary_culture = high_elysian
+		change_tag = ELY
+		change_government = senatorial_empire
+		change_technology_group = modern_greek
+		change_unit_type  = elysian_unit
+	}
+}
+
+country_event = {
+	id = nhs2_test.5
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+	}
+	
+	immediate = {
+		custom_tooltip = nhs_too_many_patriarch_t
+	}
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		change_religion = elysian_orthodoxy
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		change_religion = pantheon_worship
+	}
+}
+
+
+
+#Althing fix
+country_event = {
+	id = nhs2_test.7
+	title = nhs2_fix2
+	desc = nhs2_fix2
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		government = althing_republic
+		OR = {
+			NOT = { has_faction = vin_vikingr }
+			NOT = { has_faction = vin_farmadr }
+			AND = {
+				NOT = { has_faction = vin_gothar }
+				has_global_flag = nhs_vov_reformed_norse
+			}
+		}	
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				NOT = { has_faction = vin_vikingr }
+			}
+			add_faction = vin_vikingr
+		}
+		if = {
+			limit = {
+				NOT = { has_faction = vin_farmadr }
+			}
+			add_faction = vin_farmadr
+		}
+		if = {
+			limit = {
+				AND = {
+					NOT = { has_faction = vin_gothar }
+					has_global_flag = nhs_vov_reformed_norse
+				}
+			}
+			add_faction = vin_gothar
+		}
+	}
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+
+#Remove trading if trading partner doesn't exist
+country_event = {
+	id = nhs2_test.12
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				NOT = { exists = MRK }
+				trading_with_markland = yes
+			}
+			AND = {
+				NOT = { exists = HLL }
+				trading_with_helluland = yes
+			}
+			AND = {
+				NOT = { exists = VIN }
+				trading_with_vinland = yes
+			}
+		}
+	}
+	
+	immediate = {
+		clr_global_flag = nhs_vov_markland_deal_f
+		clr_global_flag = nhs_vov_helluland_deal_f
+		clr_global_flag = nhs_vov_vinland_deal_f
+		set_global_flag = nhs_vov_no_deal
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_markland_deal
+			}
+			remove_country_modifier = nhs_vov_markland_deal
+			MRK = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_helluland_deal
+			}
+			remove_country_modifier = nhs_vov_helluland_deal
+			HLL = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_vinland_deal
+			}
+			remove_country_modifier = nhs_vov_vinland_deal
+			VIN = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_markland_deal_after
+			}
+			remove_country_modifier = nhs_vov_markland_deal_after
+			MRK = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_helluland_deal_after
+			}
+			remove_country_modifier = nhs_vov_helluland_deal_after
+			HLL = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		if = {
+			limit = {
+				has_country_modifier = nhs_vov_vinland_deal_after
+			}
+			remove_country_modifier = nhs_vov_vinland_deal_after
+			VIN = { 
+				remove_country_modifier = nhs_vov_trade_deal
+			}
+		}
+	}
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Greek fire update flag fix
+country_event = {
+	id = nhs2_test.13
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_country_flag = nhs_updated_fire }
+		has_country_modifier = nhs_greekfire_update
+	}
+	
+	immediate = {
+		set_country_flag = nhs_updated_fire
+	}
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Icons flag fix
+country_event = {
+	id = nhs2_test.14
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		had_country_flag = { flag = nhs_choosing_icon days = 365 }
+	}
+	
+	immediate = {
+		clr_country_flag = nhs_choosing_icon
+	}
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Icons flag fix
+country_event = {
+	id = nhs2_test.15
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			religion = norse_pagan_reformed
+			religion = pantheon_worship
+			religion = aztlan_worship
+		}
+		ai = no
+		has_regency = no
+		NOT = { has_dlc = "Wealth of Nations" }
+		NOT = { has_personal_deity = odin }
+		NOT = { has_personal_deity = freya }
+		NOT = { has_personal_deity = tor }
+		NOT = { has_personal_deity = tyr }
+		NOT = { has_personal_deity = njord }
+		NOT = { has_personal_deity = snotra }
+		NOT = { has_personal_deity = ullr }
+		NOT = { has_personal_deity = hel }
+		NOT = { has_personal_deity = Leonidas }
+		NOT = { has_personal_deity = Texcatlipoca }
+		NOT = { has_personal_deity = Quetzacoatl }
+		NOT = { has_personal_deity = Tlaloc }
+		NOT = { has_personal_deity = Chalchiuhtlicue }
+		NOT = { has_personal_deity = Ares_2 }
+		NOT = { has_personal_deity = Mictlantlencuhtli }
+		NOT = { has_personal_deity = Poseidon_2 }
+		NOT = { has_personal_deity = Zeus }
+		NOT = { has_personal_deity = hera }
+		NOT = { has_personal_deity = Poseidon }
+		NOT = { has_personal_deity = Hades }
+		NOT = { has_personal_deity = Ares }
+		NOT = { has_personal_deity = Athena }
+		NOT = { has_personal_deity = Hermes }
+		NOT = { has_personal_deity = Aphrodite }
+		has_country_flag = nhs_choosing_d
+	}
+	
+	immediate = {
+		clr_country_flag = nhs_choosing_d
+	}
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Jerusalem name
+country_event = {
+	id = nhs2_test.16
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		owns = 379
+		culture_group = turko_semitic
+		is_subject = yes
+		overlord = {
+			OR = {
+				culture_group = elysian_group
+				culture_group = spartakian_group
+			}
+			religion_group = christian
+		}
+	}
+	
+	immediate = {
+		379 = {
+			change_province_name = "Jerusalem"
+			rename_capital = "Jerusalem"
+		}
+	}
+	
+
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Jerusalem name
+country_event = {
+	id = nhs2_test.17
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		owns = 379
+		culture_group = turko_semitic
+		OR = {
+			is_subject = no
+			NOT = {
+				overlord = {
+					OR = {
+						culture_group = elysian_group
+						culture_group = spartakian_group
+					}
+					religion_group = christian
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		379 = {
+			change_province_name = "al-Quds"
+			rename_capital = "Al Quds"
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Albanian fix
+country_event = {
+	id = nhs2_test.18
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			any_owned_province = {
+				has_province_modifier = nhs2_albanian_majority
+			}
+			any_owned_province = {
+				culture = shqiperi
+			}
+		}
+		has_global_flag = nhs_shqiperi_into_elysian
+		OR = {
+			culture_group = elysian_group
+			tag = SHQ
+		}
+	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				has_province_modifier = nhs2_albanian_majority
+			}
+			remove_province_modifier = nhs2_albanian_majority
+			add_permanent_province_modifier = {
+				name = "nhs2_albanian_majority2"
+				duration = -1
+			}
+			change_culture = shqipproi
+		}
+		every_owned_province = {
+			limit = {
+				culture = shqiperi
+			}
+			change_culture = shqipproi
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Albanian fix 2
+country_event = {
+	id = nhs2_test.19
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		any_owned_province = {
+			OR = {
+				has_province_modifier = nhs2_albanian_majority
+				has_province_modifier = nhs2_albanian_majority2
+			}
+		}
+		OR = {
+			tag = SHQ
+			primary_culture = shqipproi
+			primary_culture = shqiperi
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				primary_culture = shqiperi
+				has_global_flag = nhs_shqiperi_into_elysian
+			}
+			change_primary_culture = shqipproi
+			every_owned_province = {
+				limit = {
+					culture = shqiperi
+				}
+				change_culture = shqipproi
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_global_flag = nhs_shqiperi_into_elysian }
+				any_owned_province = {
+					has_province_modifier = nhs2_albanian_majority	
+				}
+			}
+			every_owned_province = {
+				limit = {
+					has_province_modifier = nhs2_albanian_majority
+				}
+				add_province_modifier = {
+					name = "nhs2_albanian_majority_no"
+					duration = -1
+				}
+			}
+		}
+		if = {
+			limit = {
+				has_global_flag = nhs_shqiperi_into_elysian
+				any_owned_province = {
+					OR = {
+						has_province_modifier = nhs2_albanian_majority2
+						has_province_modifier = nhs2_albanian_majority
+					}
+				}
+			}
+			every_owned_province = {
+				limit = {
+					OR = {
+						has_province_modifier = nhs2_albanian_majority2
+						has_province_modifier = nhs2_albanian_majority
+					}
+				}
+				if = {
+					limit = {
+						has_province_modifier = nhs2_albanian_majority
+					}
+					remove_province_modifier = nhs2_albanian_majority
+					add_province_modifier = {
+						name = "nhs2_albanian_majority2"
+						duration = -1
+					}
+				}
+				add_province_modifier = {
+					name = "nhs2_albanian_majority2_no"
+					duration = -1
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Albanian fix 3
+country_event = {
+	id = nhs2_test.20
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		any_owned_province = {
+			OR = {
+				has_province_modifier = nhs2_albanian_majority_no
+				has_province_modifier = nhs2_albanian_majority2_no
+			}
+		}
+		NOT = {
+			OR = {
+				tag = SHQ
+				primary_culture = shqipproi
+				primary_culture = shqiperi
+			}
+		}
+	}
+	
+	immediate = {
+		every_owned_province = {
+			limit = {
+				has_province_modifier = nhs2_albanian_majority_no
+			}
+			remove_province_modifier = nhs2_albanian_majority_no
+		}
+		every_owned_province = {
+			limit = {
+				has_province_modifier = nhs2_albanian_majority2_no
+			}
+			remove_province_modifier = nhs2_albanian_majority2_no
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Culture
+country_event = {
+	id = nhs2_test.21
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			AND = {
+				tag = NHS
+				primary_culture = greek
+				NOT = { is_year = 1470 }
+				OR = {
+					ruler_culture = elysian
+					heir_culture = elysian
+					consort_culture = elysian
+				}
+			}
+			AND = {
+				primary_culture = elysian
+				OR = {
+					ruler_culture = greek
+					heir_culture = greek
+					consort_culture = greek
+				}
+			}
+			AND = {
+				primary_culture = vinlandic
+				OR = {
+					ruler_culture = norse
+					heir_culture = norse
+					consort_culture = norse
+				}
+			}
+			AND = {
+				primary_culture = high_elysian
+				OR = {
+					ruler_culture = greek
+					heir_culture = greek
+					consort_culture = greek
+					ruler_culture = elysian
+					heir_culture = elysian
+					consort_culture = elysian
+				}
+			}
+			AND = {
+				culture_group = spartakian_group
+				OR = {
+					ruler_culture = high_elysian
+					heir_culture = high_elysian
+					consort_culture = high_elysian
+					ruler_culture = elysian
+					heir_culture = elysian
+					consort_culture = elysian
+				}
+			}
+		}
+	}
+	
+	immediate = {
+		if = {
+			limit = {
+				tag = NHS
+				primary_culture = greek
+				NOT = { is_year = 1470 }
+				OR = {
+					ruler_culture = elysian
+					heir_culture = elysian
+					consort_culture = elysian
+				}
+			}
+			if = {
+				limit = {
+					primary_culture = greek
+					ruler_culture = elysian
+				}
+				set_ruler_culture = greek
+			}
+			if = {
+				limit = {
+					primary_culture = greek
+					heir_culture = elysian
+					has_heir = yes
+				}
+				set_heir_culture = greek
+			}
+			if = {
+				limit = {
+					primary_culture = greek
+					consort_culture = elysian
+					has_consort = yes
+				}
+				set_consort_culture = greek
+			}
+		}
+		##
+		if = {
+			limit = {
+				primary_culture = elysian
+				ruler_culture = greek
+			}
+			set_ruler_culture = elysian
+		}
+		if = {
+			limit = {
+				primary_culture = elysian
+				heir_culture = greek
+				has_heir = yes
+			}
+			set_heir_culture = elysian
+		}
+		if = {
+			limit = {
+				primary_culture = elysian
+				consort_culture = greek
+				has_consort = yes
+			}
+			set_consort_culture = elysian
+		}
+		##
+		if = {
+			limit = {
+				primary_culture = vinlandic
+				ruler_culture = norse
+			}
+			set_ruler_culture = vinlandic
+		}
+		if = {
+			limit = {
+				primary_culture = vinlandic
+				heir_culture = norse
+				has_heir = yes
+			}
+			set_heir_culture = vinlandic
+		}
+		if = {
+			limit = {
+				primary_culture = vinlandic
+				consort_culture = norse
+				has_consort = yes
+			}
+			set_consort_culture = vinlandic
+		}
+		##
+		if = {
+			limit = {
+				primary_culture = high_elysian
+				OR = {
+					ruler_culture = greek
+					ruler_culture = elysian
+				}
+			}
+			set_ruler_culture = high_elysian
+		}
+		if = {
+			limit = {
+				primary_culture = high_elysian
+				OR = {
+					heir_culture = greek
+					heir_culture = elysian
+				}
+				has_heir = yes
+			}
+			set_heir_culture = high_elysian
+		}
+		if = {
+			limit = {
+				primary_culture = high_elysian
+				OR = {
+					consort_culture = greek
+					consort_culture = elysian
+				}
+				has_consort = yes
+			}
+			set_consort_culture = high_elysian
+		}
+		##
+		if = {
+			limit = {
+				culture_group = spartakian_group
+				OR = {
+					ruler_culture = high_elysian
+					ruler_culture = elysian
+				}
+			}
+			set_ruler_culture = lakonian
+		}
+		if = {
+			limit = {
+				culture_group = spartakian_group
+				OR = {
+					heir_culture = high_elysian
+					heir_culture = elysian
+				}
+				has_heir = yes
+			}
+			set_heir_culture = lakonian
+		}
+		if = {
+			limit = {
+				culture_group = spartakian_group
+				OR = {
+					consort_culture = high_elysian
+					consort_culture = elysian
+				}
+				has_consort = yes
+			}
+			set_consort_culture = lakonian
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Albanian unit fix
+country_event = {
+	id = nhs2_test.22
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		tag = SHQ
+		NOT = { unit_type = squipery }
+	}
+	
+	immediate = {
+		change_unit_type = squipery
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Elysian unit fix
+country_event = {
+	id = nhs2_test.23
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			technology_group = exiled_greek
+			technology_group = modern_greek
+		}
+		NOT = { unit_type = elysian_unit }
+		NOT = { tag = SHQ }
+	}
+	
+	immediate = {
+		change_unit_type = elysian_unit
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Viking unit fix
+country_event = {
+	id = nhs2_test.24
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			technology_group = viking
+			technology_group = modern_vinlandic
+		}
+		NOT = { unit_type = norse_unit }
+		
+	}
+	
+	immediate = {
+		change_unit_type = norse_unit
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+}
+
+#Test
+country_event = {
+	id = nhs2_test.26
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		953 = {
+			show_ambient_object = nea_hagia_sophia
+		}
+	}
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		950 = {
+			show_ambient_object = nea_hagia_sophia2
+		}
+	}
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		953 = {
+			show_ambient_object = nea_parthenon
+		}
+	}
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		950 = {
+			show_ambient_object = nea_parthenon2
+		}
+	}
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		change_religion = orthodox
+		set_country_flag = nhs_great_project
+	}
+	
+}
+
+#
+country_event = {
+	id = nhs2_test.27
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		OR = {
+			tag = MRK
+			tag = HLL
+			tag = VIN
+		}
+		is_subject_of_type = nhs_imperial_associate
+		NOT = { is_subject_of = ELY }
+	}
+	immediate = {
+		grant_independence = yes
+		every_country = {
+			limit = {
+				war_with = ROOT
+			}
+			white_peace = ROOT
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+	}
+	
+}
+
+country_event = {
+	id = nhs2_test.28
+	title = nhs2_mainlandevents1.t
+	desc = nhs2_mainlandevents1.d
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_variable = {
+				which = myCountingVariable
+				value = 0
+			}
+			every_province = {
+				limit = {
+					region = italy_region
+					NOT = { has_province_flag = nhs_c_done }
+				}
+				set_province_flag = nhs_c_done
+				ROOT = {
+					change_variable = {
+						which = myCountingVariable
+						value = 1
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "nhs2_mainlandevents1.a"
+		custom_tooltip = nhs_test_results
+	}
+	
+}

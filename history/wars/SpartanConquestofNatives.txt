@@ -1,0 +1,23 @@
+name = "War of the Jaguar"
+#casus_belli = cb_conquest type = take_capital_conquest
+war_goal = {
+	type = superiority_punitive
+	casus_belli = cb_super_badboy
+}
+# Begin
+1480.1.1 = {
+	add_attacker = MSG
+        add_defender = AZT
+	add_defender = ZAP
+	add_defender = TOT
+	add_defender = TLX
+}
+
+# End
+1488.4.1 = {
+	rem_attacker = MSG
+        rem_defender = AZT
+	rem_defender = ZAP
+	rem_defender = TOT
+	rem_defender = TLX
+}

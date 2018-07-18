@@ -1,0 +1,24 @@
+# If you add advisortypes, and use those tags, do not change them without changing everywhere they are used.
+
+# Uses all 'modifiers' possible that are exported as a Modifier.
+
+
+aidanon_gilbertakos = {
+		monarch_power = DIP
+		advisor_cost = -0.5
+		chance = { factor = 0 }
+}
+kointos_akhilleus = {
+	monarch_power = MIL
+	advisor_cost = -0.5
+	chance = {
+		factor = 0
+	}
+}
+konstantinia_palaiologina = {
+	monarch_power = MIL
+	discipline = 0.075
+	chance = {
+		factor = 0
+	}
+}

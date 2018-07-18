@@ -1,0 +1,5 @@
+government = despotic_monarchy
+primary_culture = hungarian
+religion = catholic
+technology_group = eastern
+capital = 153 # Buda

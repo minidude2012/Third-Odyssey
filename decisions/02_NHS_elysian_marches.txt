@@ -1,0 +1,3858 @@
+country_decisions = {
+	# Armenia
+	nhs_ely_march_armenia = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEA }
+			any_owned_province = {
+				region = caucasia_region
+				NOT = { has_province_flag = nhs_exarch_province_exemption }
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+						region = maghreb_region
+						region = egypt_region
+					}
+					NOT = { region = arabia_region }
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = caucasia_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+#			if = {
+#				limit = {
+#					any_owned_province = {
+#						NOT = { is_core = ROOT }
+#						religion = ROOT
+#						region = caucasia_region
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#					
+#				}
+#				random_owned_province = {
+#					limit = {
+#						religion = ROOT
+#						NOT = { is_core = ROOT }
+#						region = caucasia_region
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_owned_province = {
+#						NOT = { is_core = ROOT }
+#						region = caucasia_region
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#				}
+#				random_owned_province = {
+#					limit = {
+#						NOT = { is_core = ROOT }
+#						region = caucasia_region
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_owned_province = {
+#						region = caucasia_region
+#						NOT = { is_core = ROOT }
+#						religion = ROOT
+#					}
+#				}
+#				random_owned_province = {
+#					limit = {
+#						region = caucasia_region
+#						NOT = { is_core = ROOT }
+#						religion = ROOT
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_owned_province = {
+#						region = caucasia_region
+#						NOT = { is_core = ROOT }
+#					}
+#				}
+#				random_owned_province = {
+#					limit = {
+#						region = caucasia_region
+#						NOT = { is_core = ROOT }
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_owned_province = {
+#						region = caucasia_region
+#						religion = ROOT
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#				}
+#				random_owned_province = {
+#					limit = {
+#						region = caucasia_region
+#						religion = ROOT
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_owned_province = {
+#						region = caucasia_region
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#				}
+#				random_owned_province = {
+#					limit = {
+#						region = caucasia_region
+#						development = 25
+#						NOT = { has_province_modifier = center_of_trade_modifier }
+#						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_owned_province = {
+#						region = caucasia_region
+#						religion = ROOT
+#					}
+#				}
+#				random_owned_province = {
+#					limit = {
+#						region = caucasia_region
+#						religion = ROOT
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+#			else_if = {
+#				limit = {
+#					any_owned_province = {
+#						region = caucasia_region
+#					}
+#				}
+#				random_owned_province = {
+#					limit = {
+#						region = caucasia_region
+#					}
+#					tooltip = {
+#						cede_province = EEA
+#					}
+#					add_core = EEA
+#					hidden_effect = {
+#						ROOT = {
+#							release = EEA
+#						}
+#					}
+#				}
+#			}
+			nhs_assign_provinces_to_marches = { REGIONN = caucasia_region TAGG = EEA }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEA
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = caucasia_region
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = caucasia_region
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEA
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				caucasia_region = {
+					limit = {
+						NOT = { is_core = EEA }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEA
+				}
+			}
+			hidden_effect = {
+				EEA = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = caucasian
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEA = {
+								change_primary_culture = georgian
+							}
+						}
+					}
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEA
+								area = PREV
+							}
+						}
+						add_core = EEA
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	#B
+	nhs_ely_march_britania = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEB }
+			any_owned_province = {
+				region = british_isles_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = british_isles_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = british_isles_region TAGG = EEB }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEB
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = british_isles_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = british_isles_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEB
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_rome_restored
+				}
+				british_isles_region = {
+					limit = {
+						NOT = { is_core = EEB }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEB
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				custom_tooltip = nhs_vassal_claims_on_roman_britain
+				hidden_effect = {
+					home_counties_area = {
+						limit = {
+							NOT = { is_core = EEB }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EEB
+					}
+					east_anglia_area = {
+						limit = {
+							NOT = { is_core = EEB }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EEB
+					}
+					wessex_area = {
+						limit = {
+							NOT = { is_core = EEB }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EEB
+					}
+					wales_area = {
+						limit = {
+							NOT = { is_core = EEB }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EEB
+					}
+					west_midlands_area = {
+						limit = {
+							NOT = { is_core = EEB }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EEB
+					}
+					east_midlands_area = {
+						limit = {
+							NOT = { is_core = EEB }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EEB
+					}
+					yorkshire_area = {
+						limit = {
+							NOT = { is_core = EEB }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EEB
+					}
+					if = {
+						limit = {
+							247 = {
+								NOT = { is_core = EEB }
+								NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							}
+						}
+						247 = {
+							add_permanent_claim = EEB
+						}
+					}
+					if = {
+						limit = {
+							246 = {
+								NOT = { is_core = EEB }
+								NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							}
+						}
+						246 = {
+							add_permanent_claim = EEB
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				EEB = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = british
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEB = {
+								change_primary_culture = english
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEB
+								area = PREV
+							}
+						}
+						add_core = EEB
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_scandza = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEC }
+			any_owned_province = {
+				region = scandinavia_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = scandinavia_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = scandinavia_region TAGG = EEC }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEC
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = scandinavia_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = scandinavia_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEC
+				}
+			}
+			hidden_effect = {
+				EEC = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = scandinavian
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEC = {
+								change_primary_culture = swedish
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEC
+								area = PREV
+							}
+						}
+						add_core = EEC
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_dacia = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EED }
+			any_owned_province = {
+				region = carpathia_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = carpathia_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = carpathia_region TAGG = EED }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EED
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = carpathia_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = carpathia_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EED
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				carpathia_region = {
+					limit = {
+						NOT = { is_core = EED }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EED
+				}
+			}
+			hidden_effect = {
+				EED = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = carpathian
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EED = {
+								change_primary_culture = hungarian
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EED
+								area = PREV
+							}
+						}
+						add_core = EED
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_aegyptus = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEE }
+			any_owned_province = {
+				region = egypt_region
+				NOT = { has_province_flag = nhs_exarch_province_exemption }
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = egypt_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = egypt_region TAGG = EEE }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEE
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = egypt_region
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = egypt_region
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEE
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_hercules_gates
+				}
+				delta_area = {
+					limit = {
+						NOT = { is_core = EEE }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEE
+				}
+				bahari_area = {
+					limit = {
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { is_core = EEE }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEE
+				}
+				vostani_area = {
+					limit = {
+						NOT = { is_core = EEE }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEE
+				}
+				cyrenaica_area = {
+					limit = {
+						NOT = { is_core = EEE }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEE
+				}
+				gulf_of_arabia_area = {
+					limit = {
+						NOT = { is_core = EEE }
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEE
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_heir_of_justinian
+				}
+				al_wahat_area = {
+					limit = {
+						NOT = { is_core = EEE }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+					}
+					add_permanent_claim = EEE
+				}
+				said_area = {
+					limit = {
+						NOT = { is_core = EEE }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+					}
+					add_permanent_claim = EEE
+				}
+			}
+			hidden_effect = {
+				EEE = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = turko_semitic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEE = {
+								change_primary_culture = al_misr_arabic
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEE
+								area = PREV
+							}
+						}
+						add_core = EEE
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_mauretania = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEF }
+			any_owned_province = {
+				region = maghreb_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = maghreb_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = maghreb_region TAGG = EEF }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEF
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = maghreb_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = maghreb_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEF
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_rome_restored
+				}
+				maghreb_region = {
+					limit = {
+						NOT = { is_core = EEF }
+						NOT = { is_core = 2448 }
+						NOT = { is_core = 2474 }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEF
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_heir_of_justinian
+				}
+				tripolitania_area = {
+					limit = {
+						NOT = { is_core = EEF }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEF
+				}
+				djerba_area = {
+					limit = {
+						NOT = { is_core = EEF }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEF
+				}
+				tunisia_area = {
+					limit = {
+						NOT = { is_core = EEF }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEF
+				}
+				kabylia_area = {
+					limit = {
+						NOT = { is_core = EEF }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEF
+				}
+				algiers_area = {
+					limit = {
+						NOT = { is_core = EEF }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEF
+				}
+				northern_morocco_area = {
+					limit = {
+						NOT = { is_core = EEF }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEF
+				}
+			}
+			hidden_effect = {
+				EEF = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = maghrebi
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEF = {
+								change_primary_culture = tunisian
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEF
+								area = PREV
+							}
+						}
+						add_core = EEF
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_gallia = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEG }
+			any_owned_province = {
+				region = france_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = france_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = france_region TAGG = EEG }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEG
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = france_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = france_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEG
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				france_region = {
+					limit = {
+						NOT = { is_core = EEG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEG
+				}
+			}
+			hidden_effect = {
+				EEG = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = french
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEG = {
+								change_primary_culture = occitain
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEG
+								area = PREV
+							}
+						}
+						add_core = EEG
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_hispania = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEH }
+			any_owned_province = {
+				region = iberia_region
+				NOT = { has_province_flag = nhs_exarch_province_exemption }
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = iberia_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = iberia_region TAGG = EEH }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEH
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = iberia_region
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = iberia_region
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEH
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				iberia_region = {
+					limit = {
+						NOT = { is_core = EEH }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+					}
+					add_permanent_claim = EEH
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_heir_of_justinian
+				}
+				upper_andalucia_area = {
+					limit = {
+						NOT = { is_core = EEH }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { has_province_flag = nhs_exarch_province_exemption }
+					}
+					add_permanent_claim = EEH
+				}
+			}
+			hidden_effect = {
+				EEH = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = iberian
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEH = {
+								change_primary_culture = catalan
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEH
+								area = PREV
+							}
+						}
+						add_core = EEH
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_germania_superior = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEI }
+			any_owned_province = {
+				region = south_german_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = south_german_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = south_german_region TAGG = EEI }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEI
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = south_german_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = south_german_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEI
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				south_german_region = {
+					limit = {
+						NOT = { is_core = EEI }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEI
+				}
+			}
+			hidden_effect = {
+				EEI = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = germanic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEI = {
+								change_primary_culture = austrian
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEI
+								area = PREV
+							}
+						}
+						add_core = EEI
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_balticus = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEJ }
+			any_owned_province = {
+				region = baltic_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = baltic_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = baltic_region TAGG = EEJ }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEJ
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = baltic_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = baltic_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEJ
+				}
+			}
+			hidden_effect = {
+				EEJ = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = baltic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEJ = {
+								change_primary_culture = lithuanian
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEJ
+								area = PREV
+							}
+						}
+						add_core = EEJ
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_slavi = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEL }
+			any_owned_province = {
+				region = russia_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				OR = {
+					region = russia_region
+					region = ural_region
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			if = {
+				limit = {
+					any_owned_province = {
+						NOT = { is_core = ROOT }
+						religion = ROOT
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					
+				}
+				random_owned_province = {
+					limit = {
+						religion = ROOT
+						NOT = { is_core = ROOT }
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						NOT = { is_core = ROOT }
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						NOT = { is_core = ROOT }
+						religion = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						NOT = { is_core = ROOT }
+						religion = ROOT
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						NOT = { is_core = ROOT }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						NOT = { is_core = ROOT }
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						religion = ROOT
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						religion = ROOT
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						religion = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						religion = ROOT
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+					}
+					tooltip = {
+						cede_province = EEL
+					}
+					add_core = EEL
+					hidden_effect = {
+						ROOT = {
+							release = EEL
+						}
+					}
+				}
+			}
+			
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEL
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						OR = {
+							region = russia_region
+							region = ural_region
+						}
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEL
+				}
+			}
+			hidden_effect = {
+				EEL = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = east_slavic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEL = {
+								change_primary_culture = russian
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEL
+								area = PREV
+							}
+						}
+						add_core = EEL
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_sarmatia = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEM }
+			any_owned_province = {
+				region = ruthenia_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = ruthenia_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = ruthenia_region TAGG = EEM }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEM
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = ruthenia_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = ruthenia_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEM
+				}
+			}
+			hidden_effect = {
+				EEM = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = east_slavic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEM = {
+								change_primary_culture = ruthenian
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEM
+								area = PREV
+							}
+						}
+						add_core = EEM
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_syria_et_palaestina = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEO }
+			any_owned_province = {
+				region = mashriq_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = mashriq_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = mashriq_region TAGG = EEO }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEO
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = mashriq_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = mashriq_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEO
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				mashriq_region = {
+					limit = {
+						NOT = { is_core = EEO }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEO
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_ancestral_lands
+				}
+				aleppo_area = {
+					limit = {
+						NOT = { is_core = EEO }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEO
+				}
+				syria_area = {
+					limit = {
+						NOT = { is_core = EEO }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEO
+				}
+				palestine_area = {
+					limit = {
+						NOT = { is_core = EEO }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEO
+				}
+				syrian_desert_area = {
+					limit = {
+						NOT = { is_core = EEO }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEO
+				}
+				trans_jordan_area = {
+					limit = {
+						NOT = { is_core = EEO }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEO
+				}
+			}
+			
+			hidden_effect = {
+				EEO = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = turko_semitic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEO = {
+								change_primary_culture = al_suryah_arabic
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEO
+								area = PREV
+							}
+						}
+						add_core = EEO
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_roma = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EER }
+			any_owned_province = {
+				region = italy_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = italy_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = italy_region TAGG = EER }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EER
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = italy_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = italy_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EER
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_heir_of_justinian
+				}
+				italy_region = {
+					limit = {
+						NOT = { is_core = EER }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EER
+				}
+			}
+			hidden_effect = {
+				EER = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = latin
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EER = {
+								change_primary_culture = umbrian
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EER
+								area = PREV
+							}
+						}
+						add_core = EER
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_scythia = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EES }
+			any_owned_province = {
+				region = crimea_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = crimea_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = crimea_region TAGG = EES }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EES
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = crimea_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = crimea_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EES
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_rome_restored
+				}
+				crimea_region = {
+					limit = {
+						NOT = { is_core = EES }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EES
+				}
+			}
+			hidden_effect = {
+				EES = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = tartar
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EES = {
+								change_primary_culture = crimean
+							}
+						}
+					}
+					if = {
+						limit = {
+							any_owned_province = {
+								culture = goths
+							}
+							NOT = { accepted_culture = goths }
+						}
+						add_accepted_culture = goths
+					}
+					if = {
+						limit = {
+							any_owned_province = {
+								culture = pontic_greek
+							}
+							NOT = { accepted_culture = pontic_greek }
+						}
+						add_accepted_culture = pontic_greek
+					}
+					if = {
+						limit = {
+							any_owned_province = {
+								culture = greek
+							}
+							NOT = { accepted_culture = greek }
+						}
+						add_accepted_culture = greek
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EES
+								area = PREV
+							}
+						}
+						add_core = EES
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_germania_inferior = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EET }
+			any_owned_province = {
+				region = low_countries_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = low_countries_region
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			nhs_assign_provinces_to_marches = { REGIONN = low_countries_region TAGG = EET }
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EET
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = low_countries_region
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = low_countries_region
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EET
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_rome_restored
+				}
+				low_countries_region = {
+					limit = {
+						NOT = { is_core = EET }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EET
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				custom_tooltip = nhs_vassal_claims_on_lowlands
+				hidden_effect = {
+					wallonia_area = {
+						limit = {
+							NOT = { is_core = EET }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EET
+					}
+					flanders_area = {
+						limit = {
+							NOT = { is_core = EET }
+							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						}
+						add_permanent_claim = EET
+					}
+				}
+			}
+			hidden_effect = {
+				EET = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = germanic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EET = {
+								change_primary_culture = dutch
+							}
+						}
+					}
+					if = {
+						limit = {
+							any_owned_province = {
+								culture = wallonian
+							}
+							NOT = { accepted_culture = wallonian }
+						}
+						add_accepted_culture = wallonian
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EET
+								area = PREV
+							}
+						}
+						add_core = EET
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_magna_germania = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEU }
+			any_owned_province = {
+				region = north_german_region
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = north_german_region
+				NOT = { area = bohemia_area }
+				NOT = { area = erzgebirge_area }
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			if = {
+				limit = {
+					any_owned_province = {
+						NOT = { is_core = ROOT }
+						religion = ROOT
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					
+				}
+				random_owned_province = {
+					limit = {
+						religion = ROOT
+						NOT = { is_core = ROOT }
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						NOT = { is_core = ROOT }
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						NOT = { is_core = ROOT }
+						religion = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						NOT = { is_core = ROOT }
+						religion = ROOT
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						NOT = { is_core = ROOT }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						NOT = { is_core = ROOT }
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						religion = ROOT
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						religion = ROOT
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						religion = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						religion = ROOT
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+					}
+					tooltip = {
+						cede_province = EEU
+					}
+					add_core = EEU
+					hidden_effect = {
+						ROOT = {
+							release = EEU
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_rome_restored
+				}
+				north_german_region = {
+					limit = {
+						NOT = { is_core = EEU }
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEU
+				}
+			}
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEU
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						region = north_german_region
+						NOT = { area = bohemia_area }
+						NOT = { area = erzgebirge_area }
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEU
+				}
+			}
+			hidden_effect = {
+				EEU = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = germanic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEU = {
+								change_primary_culture = saxon
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEU
+								area = PREV
+							}
+						}
+						add_core = EEU
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_ely_march_venedae = {
+		potential = {
+			tag = ELY
+			NOT = { exists = EEV }
+			any_owned_province = {
+				OR = {
+					region = poland_region
+					area = bohemia_area
+					area = erzgebirge_area
+				}
+			}
+			calc_true_if = {
+				all_province = {
+					OR = {
+						superregion = near_east_superregion
+						continent = europe
+					}
+					owner = {
+						OR = {
+							tag = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				amount = 6
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				OR = {
+					region = poland_region
+					area = bohemia_area 
+					area = erzgebirge_area
+				}
+			}
+		}
+
+		effect = {
+			custom_tooltip = nhs_exarchate_starting_tt
+			custom_tooltip = nhs_exarchate_setting_desc_tt
+			custom_tooltip = nhs_exarchate_less_nationalism_tt
+			if = {
+				limit = {
+					any_owned_province = {
+						NOT = { is_core = ROOT }
+						religion = ROOT
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					
+				}
+				random_owned_province = {
+					limit = {
+						religion = ROOT
+						NOT = { is_core = ROOT }
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						NOT = { is_core = ROOT }
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						NOT = { is_core = ROOT }
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						NOT = { is_core = ROOT }
+						religion = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						NOT = { is_core = ROOT }
+						religion = ROOT
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						NOT = { is_core = ROOT }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						NOT = { is_core = ROOT }
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						religion = ROOT
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						religion = ROOT
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						development = 25
+						NOT = { has_province_modifier = center_of_trade_modifier }
+						NOT = { has_province_modifier = inland_center_of_trade_modifier }
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						religion = ROOT
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						religion = ROOT
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+					}
+				}
+				random_owned_province = {
+					limit = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+					}
+					tooltip = {
+						cede_province = EEV
+					}
+					add_core = EEV
+					hidden_effect = {
+						ROOT = {
+							release = EEV
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_rome_restored
+				}
+				poland_region = {
+					limit = {
+						NOT = { is_core = EEV }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEV
+				}
+				bohemia_area = {
+					limit = {
+						NOT = { is_core = EEV }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEV
+				}
+				erzgebirge_area = {
+					limit = {
+						NOT = { is_core = EEV }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = EEV
+				}
+			}
+			create_subject = {
+				subject_type = elysian_subject
+				subject = EEV
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						NOT = { is_core = ROOT }
+					}
+				}
+				every_owned_province = {
+					limit = {
+						OR = {
+							region = poland_region
+							area = bohemia_area 
+							area = erzgebirge_area
+						}
+						NOT = { is_core = ROOT }
+					}
+					cede_province = EEV
+				}
+			}
+			hidden_effect = {
+				EEV = {
+					change_government = despotic_monarchy
+					change_religion = ROOT
+					nhs_set_unit_type = yes
+					every_owned_province = {
+						limit = { culture_group = PREV }
+						add_nationalism = -10
+					}
+					if = {
+						limit = {
+							capital_scope = {
+								culture_group = west_slavic
+							}
+						}
+						change_primary_culture = CAPITAL
+						else = {
+							EEV = {
+								change_primary_culture = polish
+							}
+						}
+					}
+					clr_country_flag = nhs_ely_march_all
+					clr_country_flag = nhs_ely_march_territory
+					clr_country_flag = nhs_ely_march_no
+					set_country_flag = nhs_ely_march_no_core
+					add_legitimacy = 100
+					if = {
+						limit = {
+							NOT = { prestige = 15 }
+						}
+						add_prestige = 20
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 100 }
+						}
+						add_treasury = 150
+					}
+					if = {
+						limit = {
+							NOT = { treasury = 3000 }
+						}
+						add_manpower = 5
+					}
+					every_owned_province = {
+						limit = {
+							any_owned_province = {
+								is_capital = yes
+								owned_by = EEV
+								area = PREV
+							}
+						}
+						add_core = EEV
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	nhs_grant_balkans_to_elg = {
+		potential = {
+			NOT = { has_global_flag = nhs_elg_got_balkans }
+			tag = ELY
+			has_country_flag = nhs_formed_greek
+			NOT = { has_country_flag = nhs_no_greek_nation }
+			exists = ELG
+			ELG = {
+				is_subject_of = ROOT
+			}
+			any_owned_province = {
+				region = balkan_region
+				NOT = {
+					nhs_greek_areas = yes
+				}
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = balkan_region
+			}
+		}
+
+		effect = {
+			set_global_flag = nhs_elg_got_balkans
+			custom_tooltip = nhs_no_missionary_core_provinces
+			every_owned_province = {
+				limit = {
+					region = balkan_region
+					NOT = {
+						nhs_greek_areas = yes
+					}
+					NOT = { has_construction = core }
+					NOT = { has_construction = missionary }
+					NOT = { province_id = 151 }
+					NOT = { has_province_modifier = nhs2_base_of_operations }
+				}
+				cede_province = ELG
+				if = {
+					limit = {
+						culture_group = byzantine
+						NOT = { culture = turkish }
+						NOT = { is_core = ROOT }
+					}
+					add_core = ELG
+				}
+				if = {
+					limit = {
+						is_core = ROOT
+					}
+					hidden_effect = {
+						remove_core = ROOT
+					}
+					add_core = ELG
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_ancestral_lands
+				}
+				balkan_region = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	nhs_grant_anatolia_to_elg = {
+		potential = {
+			NOT = { has_global_flag = nhs_elg_got_anatolia }
+			tag = ELY
+			has_country_flag = nhs_formed_greek
+			NOT = { has_country_flag = nhs_no_greek_nation }
+			exists = ELG
+			ELG = {
+				is_subject_of = ROOT
+			}
+			any_owned_province = {
+				region = anatolia_region
+				NOT = {
+					nhs_greek_areas = yes
+				}
+			}
+		}
+
+		allow = {
+			tag = ELY
+			any_owned_province = {
+				region = anatolia_region
+			}
+		}
+
+		effect = {
+			set_global_flag = nhs_elg_got_anatolia
+			custom_tooltip = nhs_no_missionary_core_provinces
+			every_owned_province = {
+				limit = {
+					region = anatolia_region
+					NOT = {
+						nhs_greek_areas = yes
+					}
+					NOT = { has_province_modifier = nhs2_base_of_operations }
+					NOT = { has_construction = core }
+					NOT = { has_construction = missionary }
+				}
+				cede_province = ELG
+				if = {
+					limit = {
+						culture_group = byzantine
+						NOT = { culture = turkish }
+						NOT = { is_core = ROOT }
+					}
+					add_core = ELG
+				}
+				if = {
+					limit = {
+						is_core = ROOT
+					}
+					hidden_effect = {
+						remove_core = ROOT
+					}
+					add_core = ELG
+				}
+			}
+			if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_spqe
+				}
+				anatolia_region = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+			}
+			else_if = {
+				limit = {
+					has_country_flag = nhs_completed_nhs_back_to_the_motherland
+				}
+				hudavendigar_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				aydin_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				karaman_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				rum_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				kastamonu_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				erzurum_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				dulkadir_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				cukurova_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				ankara_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				aegean_archipelago_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+				germiyan_area = {
+					limit = {
+						NOT = { is_core = ELG }
+						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					}
+					add_permanent_claim = ELG
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

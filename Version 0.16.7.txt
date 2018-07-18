@@ -1,0 +1,2 @@
+Mod Version: 0.16.7
+If this number doesn't match the version stated on mod page, please delete the mod and let it redownload.

@@ -1,0 +1,223 @@
+namespace = nhs_tribute
+
+# Aidanon Gilbertakos
+country_event = {
+	id = nhs_tribute.1
+	title = newnhs_tributeevents.t
+	desc = newnhs_tributeevents.d
+	picture = UNIVERSITY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = NHS
+			tag = ELY
+		}
+		is_at_war = no
+		NOT = { has_country_modifier = nhs_handicap_settlers }
+	}
+	
+	
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 0.75
+			stability = 1
+		}
+		modifier = {
+			factor = 0.75
+			stability = 2
+		}
+		modifier = {
+			factor = 0.75
+			stability = 3
+		}
+		modifier = {
+			factor = 0.75
+			any_owned_province = {
+				has_province_modifier = nhs_gilded_keep
+			}
+		}
+	}
+	
+	option = {
+		name = newnhs_tributeevents.a
+		set_country_flag = newnhs_great_advisor
+		if = {
+			limit = {
+				NOT = { monthly_income = 25 }
+			}
+		
+			define_advisor = {
+				type = aidanon_gilbertakos
+				name = "Aidanon Gilbertakos"
+				skill = 1
+				discount = yes
+			}
+		}
+		
+		if = {
+			limit = {
+				monthly_income = 25
+				NOT = { monthly_income = 50 }
+			}
+		
+			define_advisor = {
+				type = aidanon_gilbertakos
+				name = "Aidanon Gilbertakos"
+				skill = 2
+				discount = yes
+			}
+		}
+		
+		if = {
+			limit = {
+				monthly_income = 50
+			}
+		
+			define_advisor = {
+				type = aidanon_gilbertakos
+				name = "Aidanon Gilbertakos"
+				skill = 3
+				discount = yes
+			}
+		}
+		add_dip_power = 50
+		add_mil_power = 50
+		add_adm_power = 50
+	}
+}
+
+# Cleanup
+country_event = {
+	id = nhs_tribute.2
+	title = newnhs_cleanup.t
+	desc = newnhs_cleanup.d
+	picture = UNIVERSITY_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		had_country_flag = { flag = newnhs_great_advisor days = 27375 }
+	}
+	
+	immediate = {
+		clr_country_flag = newnhs_great_advisor
+	}
+	
+	option = {
+		name = newnhs_cleanup.a
+	}
+}
+#Kointos Akhilleus
+country_event = {
+	id = nhs_tribute.3
+	title = msg_tributeevents.t
+	desc = msg_tributeevents.d
+	picture = UNIVERSITY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			tag = MSG
+			tag = MSN
+		}
+		is_at_war = no
+		technology_group = modern_spartan
+	}
+	
+	
+	mean_time_to_happen = {
+		months = 50
+		modifier = {
+			factor = 0.75
+			stability = 1
+		}
+		modifier = {
+			factor = 0.75
+			stability = 2
+		}
+		modifier = {
+			factor = 0.75
+			stability = 3
+		}
+	}
+	
+	option = {
+		name = newnhs_tributeevents.a
+		set_country_flag = msg_great_advisor
+		if = {
+			limit = {
+				NOT = { monthly_income = 25 }
+			}
+		
+			define_advisor = {
+				type = kointos_akhilleus
+				name = "Kointos Akhilleus"
+				skill = 1
+				discount = yes
+			}
+		}
+		
+		if = {
+			limit = {
+				monthly_income = 25
+				NOT = { monthly_income = 50 }
+			}
+		
+			define_advisor = {
+				type = kointos_akhilleus
+				name = "Kointos Akhilleus"
+				skill = 2
+				discount = yes
+			}
+		}
+		
+		if = {
+			limit = {
+				monthly_income = 50
+			}
+		
+			define_advisor = {
+				type = kointos_akhilleus
+				name = "Kointos Akhilleus"
+				skill = 3
+				discount = yes
+			}
+		}
+		add_dip_power = 50
+		add_mil_power = 50
+		add_adm_power = 50
+	}
+}
+
+# Cleanup
+country_event = {
+	id = nhs_tribute.4
+	title = newnhs_cleanup.t
+	desc = newnhs_cleanup.d
+	picture = UNIVERSITY_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		had_country_flag = { flag = msg_great_advisor days = 27375 }
+	}
+	
+	
+	mean_time_to_happen = {
+		months = 1
+	}
+	
+	immediate = {
+		clr_country_flag = msg_great_advisor
+	}
+	
+	option = {
+		name = newnhs_cleanup.a
+	}
+}
+
+

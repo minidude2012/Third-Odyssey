@@ -1,0 +1,5 @@
+government = despotic_monarchy
+primary_culture = occitain
+religion = catholic
+technology_group = western
+capital = 201 # Aix-en-Provence

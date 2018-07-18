@@ -1,0 +1,884 @@
+# INSTRUCTIONS:
+#
+# condition				A diplomatic action can have any number of condition blocks, each with its own
+#						tooltip, potential and allow section
+#
+# 	tooltip					Sets a custom text string similar to the hardcoded limits
+# 							If no tooltip is scripted, the tooltip for the actual trigger will be shown
+#							Note that the custom tooltip is only shown if the allow trigger is NOT met
+#
+# 	potential				Determines if the trigger is applicable or not
+# 	allow					Determines if the action is valid or not
+#
+# effect				A diplomatic action can only have one effect block
+
+# ROOT					actor
+# FROM					target
+
+########################################
+# DIPLOMATIC ACTIONS
+########################################
+# royal_marriage
+# declarewar
+# requestpeace
+# support_independence_action
+# allianceaction
+# embargoaction
+# annexationaction
+# integrationaction
+# vassalaction
+# guaranteeaction
+# warningaction
+# threaten_war
+# milaccess
+# fleet_access
+# offer_fleet_access
+# offermilaccess
+# insultaction
+# giftaction
+# claimaction
+# callaction
+# offerloan
+# warsubsidy
+# sellprov
+# imperial_relations_action
+# religious_unity_action
+# grant_electorate
+# remove_electorate
+# grant_freecity
+# remove_freecity
+# demand_unlawful_territory_action
+# call_crusade_action
+# excommunicate_action
+# enforce_peace
+# improve_relation
+# fabricate_claim
+# justify_trade_conflict
+# transfer_trade_power
+# infiltrate_administration
+# sabotage_reputation
+# support_rebels
+# sow_discontent
+# study_technology
+# agitate_for_liberty
+# form_coalition
+# request_to_join_federation
+# invite_to_federation
+# support_heir
+# break_marriage
+# designate_march
+# ask_for_march
+# sell_ships_action
+# counterespionage
+# abandon_union_action
+
+allianceaction = {
+	condition = {
+		tooltip = NHS_CANNOT_ALLY_YET
+		potential = {
+			exists = HLL
+			exists = MRK
+			FROM = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+			}
+			ROOT = {
+				AND = {
+					OR = {
+						tag = ELY
+						tag = NHS
+					}
+					FROM = {
+						OR = {
+							tag = HLL
+							tag = MRK
+						}
+					}
+				}
+				AND = {
+					OR = {
+						tag = HLL
+						tag = MRK
+					}
+					FROM = {
+						OR = {
+							tag = ELY
+							tag = NHS
+						}
+					}
+				}
+				NOT = { has_global_flag = nhs_meeting }
+				NOT = { is_year = 1460 }
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = NHS_ONLY_ONE_VIKING_ALLY
+		potential = {
+			FROM = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+			}
+			ROOT = {
+				OR = {
+					tag = ELY
+					tag = NHS
+				}
+				OR = {
+					alliance_with = MRK
+					alliance_with = HLL
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = NHS_ONLY_TRADING_VIKING_ALLY
+		potential = {
+			FROM = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+			}
+			OR = {
+				AND = {
+					exists = ELY
+					ELY = {
+						OR = {
+							has_country_modifier = nhs_vov_helluland_deal
+							has_country_modifier = nhs_vov_helluland_deal_after
+						}
+					}
+				}
+				AND = {
+					exists = NHS
+					NHS = {
+						OR = {
+							has_country_modifier = nhs_vov_helluland_deal
+							has_country_modifier = nhs_vov_helluland_deal_after
+						}
+					}
+				}
+				AND = {
+					exists = ELY
+					ELY = {
+						OR = {
+							has_country_modifier = nhs_vov_markland_deal
+							has_country_modifier = nhs_vov_markland_deal_after
+						}
+					}
+				}
+				AND = {
+					exists = NHS
+					NHS = {
+						OR = {
+							has_country_modifier = nhs_vov_markland_deal
+							has_country_modifier = nhs_vov_markland_deal_after
+						}
+					}
+				}
+			}
+			ROOT = {
+				OR = {
+					tag = ELY
+					tag = NHS
+				}
+				OR = {
+					AND = {
+						NOT = {
+							OR = {
+								AND = {
+									exists = ELY
+									ELY = {
+										OR = {
+											has_country_modifier = nhs_vov_helluland_deal
+											has_country_modifier = nhs_vov_helluland_deal_after
+										}
+									}
+								}
+								AND = {
+									exists = NHS
+									NHS = {
+										OR = {
+											has_country_modifier = nhs_vov_helluland_deal
+											has_country_modifier = nhs_vov_helluland_deal_after
+										}
+									}
+								}
+							}
+						}
+						FROM = { tag = HLL }
+					}
+					AND = {
+						NOT = {
+							OR = {
+								AND = {
+									exists = ELY
+									ELY = {
+										OR = {
+											has_country_modifier = nhs_vov_markland_deal
+											has_country_modifier = nhs_vov_markland_deal_after
+										}
+									}
+								}
+								AND = {
+									exists = NHS
+									NHS = {
+										OR = {
+											has_country_modifier = nhs_vov_markland_deal
+											has_country_modifier = nhs_vov_markland_deal_after
+										}
+									}
+								}
+							}
+						}
+						FROM = { tag = MRK }
+					}
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = NHS_ONLY_TRADING_VIKING_ALLY_V
+		potential = {
+			FROM = {
+				OR = {
+					tag = ELY
+					tag = NHS
+				}
+			}
+			OR = {
+				AND = {
+					exists = ELY
+					ELY = {
+						OR = {
+							has_country_modifier = nhs_vov_helluland_deal
+							has_country_modifier = nhs_vov_helluland_deal_after
+						}
+					}
+				}
+				AND = {
+					exists = NHS
+					NHS = {
+						OR = {
+							has_country_modifier = nhs_vov_helluland_deal
+							has_country_modifier = nhs_vov_helluland_deal_after
+						}
+					}
+				}
+				AND = {
+					exists = ELY
+					ELY = {
+						OR = {
+							has_country_modifier = nhs_vov_markland_deal
+							has_country_modifier = nhs_vov_markland_deal_after
+						}
+					}
+				}
+				AND = {
+					exists = NHS
+					NHS = {
+						OR = {
+							has_country_modifier = nhs_vov_markland_deal
+							has_country_modifier = nhs_vov_markland_deal_after
+						}
+					}
+				}
+			}
+			ROOT = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+				OR = {
+					AND = {
+						NOT = {
+							OR = {
+								AND = {
+									exists = ELY
+									ELY = {
+										OR = {
+											has_country_modifier = nhs_vov_helluland_deal
+											has_country_modifier = nhs_vov_helluland_deal_after
+										}
+									}
+								}
+								AND = {
+									exists = NHS
+									NHS = {
+										OR = {
+											has_country_modifier = nhs_vov_helluland_deal
+											has_country_modifier = nhs_vov_helluland_deal_after
+										}
+									}
+								}
+							}
+						}
+						ROOT = { tag = HLL }
+					}
+					AND = {
+						NOT = {
+							OR = {
+								AND = {
+									exists = ELY
+									ELY = {
+										OR = {
+											has_country_modifier = nhs_vov_markland_deal
+											has_country_modifier = nhs_vov_markland_deal_after
+										}
+									}
+								}
+								AND = {
+									exists = NHS
+									NHS = {
+										OR = {
+											has_country_modifier = nhs_vov_markland_deal
+											has_country_modifier = nhs_vov_markland_deal_after
+										}
+									}
+								}
+							}
+						}
+						ROOT = { tag = MRK }
+					}
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = NHS_ONLY_ONE_VIKING_ALLY_V
+		potential = {
+			FROM = {
+				OR = {
+					tag = ELY
+					tag = NHS
+				}
+			}
+			ROOT = {
+				OR = {
+					tag = MRK
+					tag = HLL
+				}
+				OR = {
+					ELY = {
+						OR = {
+							alliance_with = MRK
+							alliance_with = HLL
+						}
+					}
+					NHS = {
+						OR = {
+							alliance_with = MRK
+							alliance_with = HLL
+						}
+					}
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+threaten_war = {
+	condition = {
+		tooltip = NHS_COLONIES
+		potential = {
+			FROM = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+				NOT = { has_global_flag = nhs_vov_war_brewing }
+			}
+			ROOT = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+				NOT = { has_global_flag = nhs_vov_war_brewing }
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+declarewar = {
+#	effect = {
+#		if = {
+#			limit = {
+#				tag = ELY
+#				has_country_flag = nhs_expanding_south_complete
+#				FROM = {
+#					any_owned_province = {
+#						continent = north_america
+#					}
+#				}
+#			}
+#			every_province = {
+#				limit = {
+#					owned_by = FROM
+#					continent = north_america
+#				}
+#				add_claim = ROOT
+#			}
+#		}
+#		if = {
+#			limit = {
+#				tag = ELY
+#				has_country_flag = nhs_promised_land_complete
+#				NOT = { has_country_flag = nhs_expanding_south_complete }
+#				FROM = {
+#					any_owned_province = {
+#						OR = {
+#							continent = north_america
+#							continent = south_america
+#						}
+#					}
+#				}
+#			}
+#			every_province = {
+#				limit = {
+#					owned_by = FROM
+#					OR = {
+#						continent = north_america
+#						continent = south_america
+#					}
+#				}
+#				add_claim = ROOT
+#			}
+#		}
+#	}
+	condition = {
+		tooltip = 100_YEAR_PEACE
+		potential = {
+			ROOT = {
+				OR = {
+					tag = ELY
+					tag = NHS
+				}
+				has_country_modifier = nhs2_albanians_albania_treaty
+			}
+			FROM = {
+				tag = SHQ
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = TRADE_DEAL
+		potential = {
+			FROM = {
+				OR = {
+					AND = {
+						tag = MRK
+						OR = {
+							AND = {
+								exists = ELY
+								ELY = {
+									OR = {
+										has_country_modifier = nhs_vov_markland_deal
+										has_country_modifier = nhs_vov_markland_deal_after
+									}
+								}
+							}
+							AND = {
+								exists = NHS
+								NHS = {
+									OR = {
+										has_country_modifier = nhs_vov_markland_deal
+										has_country_modifier = nhs_vov_markland_deal_after
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						tag = HLL
+						OR = {
+							AND = {
+								exists = ELY
+								ELY = {
+									OR = {
+										has_country_modifier = nhs_vov_helluland_deal
+										has_country_modifier = nhs_vov_helluland_deal_after
+									}
+								}
+							}
+							AND = {
+								exists = NHS
+								NHS = {
+									OR = {
+										has_country_modifier = nhs_vov_helluland_deal
+										has_country_modifier = nhs_vov_helluland_deal_after
+									}
+								}
+							}
+						}
+					}
+					AND = {
+						tag = VIN
+						OR = {
+							AND = {
+								exists = ELY
+								ELY = {
+									OR = {
+										has_country_modifier = nhs_vov_vinland_deal
+										has_country_modifier = nhs_vov_vinland_deal_after
+									}
+								}
+							}
+							AND = {
+								exists = NHS
+								NHS = {
+									OR = {
+										has_country_modifier = nhs_vov_vinland_deal
+										has_country_modifier = nhs_vov_vinland_deal_after
+									}
+								}
+							}	
+						}
+					}
+				}
+			}
+			ROOT = {
+				OR = {
+					tag = NHS
+					tag = ELY
+				}
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = TRADE_DEAL
+		potential = {
+			FROM = {
+				OR = {
+					tag = NHS
+					tag = ELY
+				}
+			}
+			ROOT = {
+				OR = {
+					tag = MRK
+					tag = HLL
+					tag = VIN
+				}
+				has_country_modifier = nhs_vov_trade_deal
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = NHS_PEACE
+		potential = {
+			FROM = {
+				tag = BYZ
+				has_country_modifier = byz_flight
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = NHS_PEACE
+		potential = {
+			ROOT = {
+				tag = BYZ
+				has_country_modifier = byz_flight
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	condition = {
+		tooltip = NHS_COLONIES
+		potential = {
+			FROM = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+				NOT = { has_global_flag = nhs_vov_war_brewing }
+			}
+			ROOT = {
+				OR = {
+					tag = HLL
+					tag = MRK
+				}
+				NOT = { has_global_flag = nhs_vov_war_brewing }
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+	#NEW CONDITION FOR AI SPARTA
+	condition = {
+		tooltip = MSG_NO_WAR_DURING_REFORM_AI_ONLY
+		potential = {
+			ROOT = {
+				tag = MSN
+				ai = yes
+			}
+			FROM = {
+				always = yes
+			}
+		}
+		allow = {
+			NOT = { has_country_flag = msg_reform_in_progress }
+		}
+	}
+	#NEW CONDITION FOR SPARTA AND FRIENDS :)
+	condition = {
+		tooltip = MSG_NO_WAR_WITH_PACTMATES
+		potential = {
+			ROOT = { tag = MSN }
+			FROM = {
+				OR = {
+					has_country_flag = msg_in_barbaroi_pact_with_MSN
+					has_country_flag = msg_in_viking_pact_with_MSN
+				}
+			}
+		}
+		allow = { always = no }
+	}
+	condition = {
+		tooltip = MSG_NO_WAR_WITH_PACTMATES
+		potential = {
+			ROOT = {
+				OR = {
+					has_country_flag = msg_in_barbaroi_pact_with_MSN
+					has_country_flag = msg_in_viking_pact_with_MSN
+				}
+			}
+			FROM = {
+				tag = MSN
+			}
+		}
+		allow = { always = no }
+	}
+}
+
+
+warningaction = {
+	condition = {
+		potential = {
+			ROOT = {
+				any_neighbor_country = {
+					tag = BYZ
+				}
+			}
+			FROM = {
+				OR = {
+					NOT = { tag = BYZ }
+					is_year = 1448
+				}
+			}
+		}
+		allow = {
+			FROM = {
+				OR = {
+					NOT = { tag = BYZ }
+					is_year = 1448
+				}
+			}
+		}
+	}
+}
+
+royal_marriage = {
+	condition = {
+		tooltip = MARWAR
+		potential = {
+		}
+		allow = {
+			NOT = { war_with = FROM }
+		}
+	}
+}
+
+annexationaction = {
+	condition = {
+		tooltip = ANNEX_TOO_LOW
+		potential = {
+			FROM = {
+				vassal_of = ROOT
+			}
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+	condition = {
+		tooltip = INVALID_TARGET_NHS
+		potential = {
+			ROOT = {
+				OR = {
+					tag = ELY
+					tag = NHS
+				}
+			}
+			FROM = {
+				tag = ELG
+			}
+			always = no #Disabled
+		}
+		allow = {
+			FROM = {
+				NOT = { tag = ELG }
+			}
+		}
+	}
+	#condition = {
+	#	tooltip = ANNEXINVALID
+	#	potential = {
+	#		FROM = {
+	#			vassal_of = ROOT
+	#		}
+	#	}
+	#	allow = {
+	#		FROM = {
+	#			years_in_vassalage_under = {
+	#				who = ROOT
+	#				years = 10
+	#			}
+	#		}
+	#	}
+	#}
+}
+
+integrationaction = {
+	condition = {
+		tooltip = INTEGRATETOOLOWDESC
+		potential = {
+			senior_union_with = FROM
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+	#condition = {
+	#	tooltip = INTEGRATEINVALID
+	#	potential = {
+	#		senior_union_with = FROM
+	#	}
+	#	allow = {
+	#		FROM = {
+	#			years_in_union_under = {
+	#				who = ROOT
+	#				years = 50
+	#			}
+	#		}
+	#	}
+	#}
+}
+
+vassalaction = {
+	condition = {
+		tooltip = VASSALINVALID
+		potential = {
+		}
+		allow = {
+			alliance_with = FROM
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+			FROM = { is_at_war = no }
+		}
+	}
+}
+
+abandon_union_action = {
+	condition = {
+		potential = {
+		}
+		allow = {
+			ROOT = {
+				senior_union_with = FROM
+				is_at_war = no
+			}
+		}
+	}
+}
+
+
+
+
+form_coalition = {
+	condition = {
+		tooltip = MINAGGRESSIVEEXPANSION
+		potential = {	
+		}
+		allow = {
+			has_opinion_modifier = {
+				modifier = aggressive_expansion
+				who = FROM
+			}		
+			NOT = {
+				has_opinion_modifier = {
+					modifier = aggressive_expansion
+					who = FROM
+					value = -50
+				}
+			}
+		}
+	}
+}
+
+fabricate_claim = {
+	condition = {
+		tooltip = NHS_NOTNATIVE
+		potential = {
+			OR = {
+				government = native_council
+				government = native_council2
+			}
+		}
+		allow = {
+			NOT = { government = native_council }
+			NOT = { government = native_council2 }
+		}
+	}
+}

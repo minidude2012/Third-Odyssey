@@ -1,0 +1,7 @@
+government = despotic_monarchy
+mercantilism = 25
+primary_culture = shqiperi
+religion = orthodox
+technology_group = exiled_greek
+capital = 482
+unit_type = squipery

@@ -1,0 +1,5 @@
+government = despotic_monarchy
+primary_culture = goths
+religion = orthodox
+technology_group = eastern
+capital = 2410	# Theodoro

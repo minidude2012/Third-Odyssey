@@ -1,0 +1,13 @@
+government = elysian_peoples_republic
+mercantilism = 20
+primary_culture = elyshi
+religion = pantheon_worship
+technology_group = exiled_greek
+capital = 965 # Manhattan
+historical_rival = NHS
+historical_rival = ELY
+historical_rival = HBN
+historical_rival = CTM
+historical_rival = ELF
+historical_rival = KYK
+unit_type = elysian_unit

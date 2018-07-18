@@ -1,0 +1,6 @@
+
+advisor = {
+	advisor_id = 9999
+	name = "Aidanon Gilbertakos"
+	type = aidanon_gilbertakos
+}

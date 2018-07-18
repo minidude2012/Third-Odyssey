@@ -1,0 +1,1090 @@
+# Province Triggered modifiers are here.
+# These are added to provinces through the add_province_triggered_modifier effect
+#
+# Effects are fully scriptable here.
+
+
+###########################################
+# Just random test modifier
+###########################################
+
+nhs_old_gods_bonus = {
+	potential = {
+	}
+	
+	#viewer = {
+	#}
+	trigger = {
+		owner = {
+			OR = {
+				religion = pantheon_worship
+				religion = aztlan_worship
+			}
+		}
+	}
+	
+	local_missionary_strength = 0.02
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	on_deactivation = {
+		
+	}
+
+}
+
+nhs_gibraltar_mod = {
+	potential = {
+	}
+	
+	#viewer = {
+	#}
+	trigger = {
+		owner = {
+			tag = ELY
+		}
+	}
+	province_trade_power_value = 10
+	local_sailors = 500
+	local_ship_repair = 0.5
+	ship_recruit_speed = -0.25
+	fort_level = 1
+	local_defensiveness = 0.5
+	local_hostile_attrition = 3
+	#Province scope
+	on_activation = {
+	
+	}
+	on_deactivation = {
+		
+	}
+}
+
+religious_center_pantheon = {
+	potential = {
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		religion = pantheon_worship
+	}
+
+	local_missionary_strength = -0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+religious_center_aztlan = {
+	potential = {
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		religion = aztlan_worship
+	}
+
+	local_missionary_strength = -0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+religious_center_elysian_orthodox = {
+	potential = {
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		religion = elysian_orthodoxy
+	}
+
+	local_missionary_strength = -0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nhs_inward_focus_build_cost_reduction = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			tag = ELY
+			custom_trigger_tooltip = {
+				tooltip = nhs_completed_inward_focus_comp_tt
+				has_country_flag = nhs_completed_inward_focus
+			}
+		}
+		
+	}
+
+	local_build_cost = -0.15
+	local_build_time = -0.15
+	local_colonial_growth = 10
+	
+	picture = "build_cost"
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+nhs_inward_focus_development_red = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			tag = ELY
+			custom_trigger_tooltip = {
+				tooltip = development_of_the_true_homeland_comp_tt
+				has_country_flag = development_of_the_true_homeland_done
+			}
+		}
+	}
+
+	local_build_cost = -0.15
+	local_build_time = -0.15
+	local_development_cost = -0.1
+	local_colonial_growth = 20
+	
+	picture = "development_cost"
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+}
+
+nhs_nhs_the_city_of_cities_bonus = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			tag = ELY
+			custom_trigger_tooltip = {
+				tooltip = nhs_the_city_of_cities_comp_tt
+				has_country_flag = nhs_the_city_of_cities_done
+			}
+		}
+	}
+
+	local_build_cost = -0.15
+	local_build_time = -0.15
+	local_development_cost = -0.1
+	allowed_num_of_buildings = 1
+	local_colonial_growth = 25
+	
+	picture = "allowed_num_of_buildings"
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+}
+
+nea_hagia_sophia_one_v1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	max_absolutism = 2
+	local_development_cost = -0.05
+	
+	picture = "orthodox_church"
+	
+	#Province scope
+	on_activation = {
+	}
+	
+	on_deactivation = {
+		country_event = { id = nhs_mission_events.7 }
+	}
+}
+
+nea_hagia_sophia_one_v2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_one_v3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	prestige_decay = -0.005
+	trade_efficiency = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_two_v1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	max_absolutism = 5
+	local_development_cost = -0.1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_two_v2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 1.5
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_two_v3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	prestige_decay = -0.01
+	trade_efficiency = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_three_v1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	max_absolutism = 7
+	local_development_cost = -0.15
+	
+	#Province scope
+	on_activation = {
+		
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_three_v2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 2
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_three_v3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	prestige_decay = -0.01
+	trade_efficiency = 0.1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v1_c1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	max_absolutism = 10
+	local_development_cost = -0.20
+	yearly_absolutism = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v2_c1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 2
+	yearly_absolutism = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v3_c1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	prestige_decay = -0.01
+	trade_efficiency = 0.1
+	yearly_absolutism = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v1_c2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	max_absolutism = 10
+	local_development_cost = -0.20
+	monarch_diplomatic_power = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v2_c2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 2
+	monarch_diplomatic_power = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v3_c2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	prestige_decay = -0.01
+	trade_efficiency = 0.1
+	monarch_diplomatic_power = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v1_c3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	max_absolutism = 10
+	local_development_cost = -0.20
+	global_missionary_strength = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v2_c3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 2
+	global_missionary_strength = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_four_v3_c3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+			custom_trigger_tooltip = {
+				has_country_flag = nhs_building_hagia_sophia
+				tooltip = nhs_aproved_construction_tt
+			}
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 0.5
+	prestige_decay = -0.01
+	trade_efficiency = 0.1
+	global_missionary_strength = 0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v1_c1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	max_absolutism = 10
+	local_development_cost = -0.20
+	yearly_absolutism = 0.1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v2_c1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			has_country_flag = nhs_building_hagia_sophia
+			NOT = { has_province_modifier = nea_hagia_sophia_finished_v2_c1 }
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 1
+	yearly_absolutism = 0.1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v3_c1 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	prestige_decay = -0.01
+	trade_efficiency = 0.1
+	yearly_absolutism = 0.1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v1_c2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	max_absolutism = 10
+	local_development_cost = -0.20
+	monarch_diplomatic_power = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v2_c2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 1
+	monarch_diplomatic_power = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v3_c2 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	prestige_decay = -0.01
+	trade_efficiency = 0.1
+	monarch_diplomatic_power = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v1_c3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	max_absolutism = 10
+	local_development_cost = -0.20
+	global_missionary_strength = 0.01
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v2_c3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	tolerance_own = 1
+	global_missionary_strength = 0.01
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}
+
+nea_hagia_sophia_finished_v3_c3 = {
+	potential = {
+		always = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = christian
+		}
+	}
+
+	local_unrest = -5
+	prestige_decay = -0.01
+	trade_efficiency = 0.1
+	global_missionary_strength = 0.01
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+		
+	}
+}

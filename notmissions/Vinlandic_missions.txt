@@ -1,0 +1,1128 @@
+#Missions for the Norse
+
+conquer_the_huron = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+	target_provinces = {
+		owned_by = HUR
+	}
+	
+	allow = {
+		OR = {
+			tag = VIN
+			tag = JOM
+		}
+		knows_country = HUR
+		exists = HUR
+		any_owned_province = {
+			any_neighbor_province = {
+				owned_by = HUR
+			}
+		}
+		HUR = {
+			is_subject = no
+		}
+		NOT = { has_country_flag = nhs_vov_conquer_the_huron_done }
+	}
+	
+	chance = {
+		factor = 4000
+		modifier = {
+			factor = 4
+			owns = 989
+		}
+		modifier = {
+			factor = 4
+			owns = 2585
+		}
+		modifier = {
+			factor = 4
+			owns = 991
+		}
+		modifier = {
+			factor = 4
+			owns = 2671
+		}
+		modifier = {
+			factor = 4
+			owns = 2587
+		}
+		modifier = {
+			factor = 10
+			owns = 944
+		}
+	}
+	success = {
+		all_target_province = {
+			owned_by = ROOT
+			is_core = ROOT
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_adm_power = 100
+		add_prestige = 10
+		set_country_flag = nhs_vov_conquer_the_huron_done
+	}
+}
+conquer_the_iroquois = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+	target_provinces = {
+		owned_by = IRO
+	}
+	
+	allow = {
+		OR = {
+			tag = VIN
+			tag = JOM
+		}
+		knows_country = IRO
+		exists = IRO
+		any_owned_province = {
+			any_neighbor_province = {
+				owned_by = IRO
+			}
+		}
+		HUR = {
+			is_subject = no
+		}
+		NOT = { has_country_flag = nhs_vov_conquer_the_iroquois_done }
+	}
+	
+	chance = {
+		factor = 4000
+		modifier = {
+			factor = 4
+			owns = 958
+		}
+		modifier = {
+			factor = 4
+			owns = 954
+		}
+		modifier = {
+			factor = 4
+			owns = 2557
+		}
+		modifier = {
+			factor = 4
+			owns = 2023
+		}
+		modifier = {
+			factor = 4
+			owns = 2558
+		}
+		modifier = {
+			factor = 4
+			owns = 964
+		}
+		modifier = {
+			factor = 4
+			owns = 2559
+		}
+		modifier = {
+			factor = 4
+			owns = 989
+		}
+	}
+	success = {
+		all_target_province = {
+			owned_by = ROOT
+			is_core = ROOT
+		}
+	}
+	immediate = {
+		every_target_province = {
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		every_target_province = {
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_adm_power = 100
+		add_prestige = 10
+		set_country_flag = nhs_vov_conquer_the_iroquois_done
+	}
+}
+
+colonize_the_erikson_gulf = {
+	type = country
+	category = DIP
+	ai_mission = yes
+	
+
+	allow = {
+		AND = { #Disabled
+			tag = VIN
+			tag = HLL
+			tag = MRK
+		}
+		num_of_colonists = 1
+	}
+	
+	chance = {
+		factor = 2000
+	}
+	success = {
+		every_province = {
+			limit = {
+				region = erikson_gulf
+			}
+			owned_by = ROOT
+			is_core = ROOT
+		}
+	}
+	immediate = {
+		add_country_modifier = {
+			name = expand_colonial_territory
+			duration = 365
+		}
+	}
+	abort_effect = {
+		remove_country_modifier = expand_colonial_territory
+	}
+	effect = {
+		add_adm_power = 200
+		add_dip_power = 200
+		add_prestige = 10
+	}
+}
+
+conquer_helluland = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+
+	allow = {
+		tag = MRK
+		has_country_flag = nhs_vov_war_brewing_c
+	}
+	
+	chance = {
+		factor = 2000
+	}
+	success = {
+		HLL = {
+			exists = no
+		}
+		owns = 996
+		owns = 997
+		owns = 2574
+		owns = 2575
+	}
+	immediate = {
+		HLL = {
+			every_owned_province = {
+				add_claim = MRK
+			}
+		}
+	}
+	effect = {
+		add_adm_power = 100
+		add_mil_power = 100
+		add_prestige = 15
+	}
+}
+
+
+conquer_markland = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+
+	allow = {
+		tag = HLL
+		has_country_flag = nhs_vov_war_brewing_c
+	}
+	
+	chance = {
+		factor = 2000
+	}
+	success = {
+		MRK = {
+			exists = no
+		}
+		owns = 980
+		owns = 981
+		owns = 982
+		owns = 2573
+	}
+	immediate = {
+		MRK = {
+			every_owned_province = {
+				add_claim = HLL
+			}
+		}
+	}
+	effect = {
+		add_adm_power = 100
+		add_mil_power = 100
+		add_prestige = 15
+	}
+}
+
+
+colonize_greenland = {
+	type = country
+	category = DIP
+	ai_mission = yes
+	
+	allow = {
+		OR = {
+			tag = VIN
+			tag = MRK
+			tag = HLL
+		}
+		num_of_colonists = 1
+		greenland_area = { has_discovered = ROOT }
+		any_province = {
+			area = greenland_area
+			is_empty = yes
+			range = ROOT
+		}
+	}
+	
+	chance = {
+		factor = 1000
+	}
+	success = {
+		any_owned_province = {
+			is_colony = no
+			area = greenland_area
+		}
+	}
+	immediate = {
+		add_country_modifier = {
+			name = expand_colonial_territory
+			duration = 90
+		}
+		every_province = {
+			limit = {
+				area = greenland_area
+			}
+			add_claim = ROOT
+		}
+	}
+	abort = {
+	}
+	abort_effect = {
+		remove_country_modifier = expand_colonial_territory
+		every_province = {
+			limit = {
+				area = greenland_area
+			}
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_adm_power = 50
+		add_prestige = 5
+	}
+}
+
+
+colonize_thorfinn_bay = {
+	type = country
+	category = DIP
+	ai_mission = yes
+	
+	allow = {
+		AND = {  #Disabled
+			tag = VIN
+			tag = MRK
+			tag = HLL
+		}
+		num_of_colonists = 1
+		has_discovered = thorfinn_bay
+	}
+	
+	chance = {
+		factor = 1000
+	}
+	success = {
+		thorfinn_bay = {
+			every_province = {
+				owned_by = ROOT
+			}
+		}
+	}
+	immediate = {
+		add_country_modifier = {
+			name = expand_colonial_territory
+			duration = 200
+		}
+		thorfinn_bay = {
+			every_province = {
+				add_claim = ROOT
+			}
+		}
+	}
+	abort_effect = {
+		remove_country_modifier = expand_colonial_territory
+		thorfinn_bay = {
+			every_province = {
+				remove_claim = ROOT
+			}
+		}
+	}
+	effect = {
+		add_adm_power = 100
+		add_prestige = 10
+	}
+}
+
+
+
+#acquire_all_holy_jomsviking_land = {
+#	type = country
+#	category = DIP
+#	ai_mission = yes
+#	
+#	allow = {
+#		OR = {
+#			AND = {
+#				tag = VIN
+#				JOM = { march_of = VIN }
+#			}
+#			tag = JOM
+#		}
+#		num_of_colonists = 1
+#	}
+#	
+#	chance = {
+#		factor = 1000
+#	}
+#	success = {
+#		jomsvikings_lands = {
+#			every_province = {
+#				owned_by = JOM
+#			}
+#		}
+#	}
+#	immediate = {
+#		add_country_modifier = {
+#			name = expand_colonial_territory
+#			duration = 365
+#		}
+#		jomsvikings_lands = {
+#			every_province = {
+#				add_claim = JOM
+#			}
+#		}
+#	}
+#	abort_effect = {
+#		remove_country_modifier = expand_colonial_territory
+#		jomsvikings_lands = {
+#			every_province = {
+#				remove_claim = JOM
+#			}
+#		}
+#	}
+#	effect = {
+#		add_adm_power = 100
+#		add_prestige = 10
+#	}
+#}
+
+vin_conquer_iceland = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VIN
+		OR = {
+			AND = {
+				has_discovered = 370
+				NOT = { owns_or_vassal_of = 370 }
+				370 = {
+					range = ROOT
+				}
+			}
+			AND = {
+				has_discovered = 371
+				NOT = { owns_or_vassal_of = 371 }
+				371 = {
+					range = ROOT
+				}
+			}
+		}
+		dip_tech = 12
+		NOT = { has_country_flag = nhs_vin_conquered_iceland }
+	}
+	
+	chance = {
+		factor = 10000
+		modifier = {
+			factor = 20
+			NOT = {
+				AND = {
+					eastern_ireland_area = {
+						range = ROOT
+					}
+					western_ireland_area = {
+						range = ROOT
+					}
+				}
+			}
+		}
+	}
+	success = {
+		owns_or_vassal_of = 370
+		owns_or_vassal_of = 371
+	}
+	immediate = {
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 370
+					province_id = 371
+				}
+				NOT = { is_core = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		every_province = {
+			limit = {
+				NOT = { is_permanent_claim = ROOT }
+				OR = {
+					province_id = 370
+					province_id = 371
+				}
+				NOT = { is_core = ROOT }
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = "military_victory"
+			duration = 3650
+		}
+		set_country_flag = nhs_vin_conquered_iceland
+	}
+}
+
+vin_conquer_ireland = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VIN
+		OR = {
+			eastern_ireland_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+			western_ireland_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+		}
+		dip_tech = 12
+		NOT = { has_country_flag = nhs_vin_conquered_ireland }
+	}
+	
+	chance = {
+		factor = 10000
+		modifier = {
+			factor = 4
+			NOT = {
+				AND = {
+					highlands_area = {
+						range = ROOT
+					}
+					lowlands_area = {
+						range = ROOT
+					}
+					mercia_area = {
+						range = ROOT
+					}
+					northern_england_area = {
+						range = ROOT
+					}
+					wales_area = {
+						range = ROOT
+					}
+					wessex_area = {
+						range = ROOT
+					}
+					east_anglia_area = {
+						range = ROOT
+					}
+				}
+			}
+		}
+	}
+	success = {
+		owns_or_vassal_of = 373
+		custom_trigger_tooltip = {
+			tooltip = nhs_vin_ireland
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						area = eastern_ireland_area
+						area = western_ireland_area
+					}
+				}
+				amount = 5
+			}
+		}
+		#custom_trigger_tooltip = {
+		#	tooltip = owns_5_Ireland_provinces
+		#	
+		#}
+	}
+	immediate = {
+		eastern_ireland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		western_ireland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		eastern_ireland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			remove_claim = ROOT
+		}
+		western_ireland_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_permanent_claim = ROOT }
+			}
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = "military_victory"
+			duration = 3650
+		}
+		eastern_ireland_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		western_ireland_area = {
+			limit = {
+				NOT = { is_core = ROOT }
+			}
+			add_permanent_claim = ROOT
+		}
+		set_country_flag = nhs_vin_conquered_ireland
+	}
+}
+
+vin_conquer_scotland = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VIN
+		OR = {
+			lowlands_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+			highlands_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+		}
+		dip_tech = 12
+		NOT = { has_country_flag = nhs_vin_conquered_scotland }
+	}
+	
+	chance = {
+		factor = 5000
+		modifier = {
+			factor = 4
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						area = eastern_ireland_area
+						area = western_ireland_area
+					}
+				}
+				amount = 5
+			}
+		}
+		modifier = {
+			factor = 8
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						area = eastern_ireland_area
+						area = western_ireland_area
+					}
+				}
+				amount = 5
+			}
+			NOT = {
+				any_province = {
+					region = scandinavia_region
+					NOT = { area = iceland_area }
+					NOT = { area = subarctic_islands_area }
+					NOT = { area = greenland_area }
+					NOT = { area = karelia_area }
+					NOT = { area = north_karelia }
+					NOT = { area = laponia_area }
+					NOT = { area = finland_area }
+					range = ROOT
+				}
+			}
+		}
+	}
+	success = {
+		owns_or_vassal_of = 253
+		custom_trigger_tooltip = {
+			tooltip = nhs_vin_scotland
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						area = lowlands_area
+						area = highlands_area
+					}
+				}
+				amount = 4
+			}
+		}
+		#custom_trigger_tooltip = {
+		#	tooltip = owns_5_Ireland_provinces
+		#	
+		#}
+	}
+	immediate = {
+		lowlands_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		highlands_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		lowlands_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+		highlands_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = "military_victory"
+			duration = 3650
+		}
+		lowlands_area = {
+			add_permanent_claim = ROOT
+		}
+		highlands_area = {
+			add_permanent_claim = ROOT
+		}
+		subarctic_islands_area = {
+			add_permanent_claim = ROOT
+		}
+		set_country_flag = nhs_vin_conquered_scotland
+	}
+}
+
+vin_conquer_england = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VIN
+		OR = {
+			mercia_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+			wessex_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+			east_anglia_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+			northern_england_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+			wales_area = {
+				range = ROOT
+				has_discovered = ROOT
+			}
+		}
+		dip_tech = 12
+		NOT = { has_country_flag = nhs_vin_conquered_england }
+	}
+	
+	chance = {
+		factor = 5000
+		modifier = {
+			factor = 4
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						area = eastern_ireland_area
+						area = western_ireland_area
+					}
+				}
+				amount = 5
+			}
+		}
+		modifier = {
+			factor = 8
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						area = eastern_ireland_area
+						area = western_ireland_area
+					}
+				}
+				amount = 5
+			}
+			NOT = {
+				any_province = {
+					region = scandinavia_region
+					NOT = { area = iceland_area }
+					NOT = { area = subarctic_islands_area }
+					NOT = { area = greenland_area }
+					NOT = { area = karelia_area }
+					NOT = { area = north_karelia }
+					NOT = { area = laponia_area }
+					NOT = { area = finland_area }
+					range = ROOT
+				}
+			}
+		}
+	}
+	success = {
+		owns_or_vassal_of = 236
+		owns_or_vassal_of = 245
+		custom_trigger_tooltip = {
+			tooltip = nhs_vin_england
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					OR = {
+						area = mercia_area
+						area = wessex_area
+						area = east_anglia_area
+						area = northern_england_area
+						area = wales_area
+					}
+				}
+				amount = 10
+			}
+		}
+		#custom_trigger_tooltip = {
+		#	tooltip = owns_5_Ireland_provinces
+		#	
+		#}
+	}
+	immediate = {
+		mercia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		wessex_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		east_anglia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		northern_england_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+		wales_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		mercia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+		wessex_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+		east_anglia_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+		northern_england_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+		wales_area = {
+			limit = {
+				NOT = { owned_by = ROOT }
+			}
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = "military_victory"
+			duration = 3650
+		}
+		mercia_area = {
+			add_permanent_claim = ROOT
+		}
+		wessex_area = {
+			add_permanent_claim = ROOT
+		}
+		east_anglia_area = {
+			add_permanent_claim = ROOT
+		}
+		northern_england_area = {
+			add_permanent_claim = ROOT
+		}
+		wales_area = {
+			add_permanent_claim = ROOT
+		}
+		set_country_flag = nhs_vin_conquered_england
+	}
+}
+
+vin_conquer_scandinavia = {
+	type = country
+	category = MIL
+	ai_mission = yes
+	
+	allow = {
+		tag = VIN
+		any_province = {
+			region = scandinavia_region
+			NOT = { area = iceland_area }
+			NOT = { area = subarctic_islands_area }
+			NOT = { area = greenland_area }
+			NOT = { area = karelia_area }
+			NOT = { area = north_karelia }
+			NOT = { area = laponia_area }
+			NOT = { area = finland_area }
+			NOT = { area = bothnia_area }
+			range = ROOT
+		}
+		dip_tech = 12
+		NOT = { has_country_flag = nhs_vin_conquered_scandinavia }
+	}
+	
+	chance = {
+		factor = 200000
+	}
+	success = {
+		owns = 1
+		owns = 12
+		owns = 17
+		custom_trigger_tooltip = {
+			tooltip = nhs_vin_scandinavia
+			calc_true_if = {
+				all_province = {
+					OR = {
+						owned_by = ROOT
+						owner = {
+							is_subject_of = ROOT
+						}
+					}
+					region = scandinavia_region
+					NOT = { area = iceland_area }
+					NOT = { area = subarctic_islands_area }
+					NOT = { area = greenland_area }
+					NOT = { area = karelia_area }
+					NOT = { area = north_karelia }
+					NOT = { area = laponia_area }
+					NOT = { area = finland_area }
+					NOT = { area = bothnia_area }
+				}
+				amount = 40
+			}
+		}
+		#custom_trigger_tooltip = {
+		#	tooltip = owns_5_Ireland_provinces
+		#	
+		#}
+	}
+	immediate = {
+		every_province = {
+			limit = {
+				region = scandinavia_region
+				NOT = { area = iceland_area }
+				NOT = { area = subarctic_islands_area }
+				NOT = { area = greenland_area }
+				NOT = { area = karelia_area }
+				NOT = { area = north_karelia }
+				NOT = { area = laponia_area }
+				NOT = { area = finland_area }
+				NOT = { area = bothnia_area }
+			}
+			add_claim = ROOT
+		}
+	}
+	abort_effect = {
+		every_province = {
+			limit = {
+				region = scandinavia_region
+				NOT = { area = iceland_area }
+				NOT = { area = subarctic_islands_area }
+				NOT = { area = greenland_area }
+				NOT = { area = karelia_area }
+				NOT = { area = north_karelia }
+				NOT = { area = laponia_area }
+				NOT = { area = finland_area }
+				NOT = { area = bothnia_area }
+			}
+			remove_claim = ROOT
+		}
+	}
+	effect = {
+		add_country_modifier = {
+			name = "military_victory"
+			duration = 3650
+		}
+		custom_tooltip = nhs_vin_scandinavia_reward1
+		hidden_effect = {
+			every_province = {
+				limit = {
+					region = scandinavia_region
+					NOT = { area = iceland_area }
+					NOT = { area = subarctic_islands_area }
+					NOT = { area = greenland_area }
+					NOT = { area = karelia_area }
+					NOT = { area = north_karelia }
+					NOT = { area = laponia_area }
+					NOT = { area = finland_area }
+					NOT = { area = bothnia_area }
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+		custom_tooltip = nhs_vin_scandinavia_reward2
+		hidden_effect = {
+			every_province = {
+				limit = {
+					OR = {
+						area = laponia_area
+						area = finland_area
+						area = bothnia_area
+					}
+				}
+				add_claim = ROOT
+			}
+		}
+		set_country_flag = nhs_vin_conquered_scandinavia
+	}
+}

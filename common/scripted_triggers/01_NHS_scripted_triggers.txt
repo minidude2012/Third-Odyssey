@@ -1,0 +1,782 @@
+nhs_vinland_waters = {
+	OR = {
+		area = erikson_river_area
+		area = sea_of_labrador_area
+		area = gulf_of_st_lawrence_area
+		province_id = 1492
+	}
+}
+
+nhs_greek_areas = {
+	OR = {
+		area = macedonia_area
+		area = northern_greece_area
+		area = morea_area
+		area = western_aegean_area
+		area = thrace_area
+		area = bulgaria_area
+		AND = {
+			culture_group = byzantine
+			NOT = { culture = turkish }
+			OR = {
+				region = balkan_region
+				region = anatolia_region
+				region = crimea_region
+			}
+		}
+	}
+}
+
+is_native_council = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_native_coucil_tt
+		OR = {
+			government = native_council
+			government = native_council2
+		}
+	}
+}
+
+nhs_exiles_tech = {
+	OR = {
+		technology_group = exiled_greek
+		technology_group = modern_greek
+		technology_group = exiled_spartan
+		technology_group = modern_spartan
+		technology_group = viking
+		technology_group = modern_vinlandic
+	}
+}
+
+is_native_council_of_fed = {
+	OR = {
+		custom_trigger_tooltip = {
+			tooltip = nhs_native_coucil_tt
+			OR = {
+				government = native_council
+				government = native_council2
+			}
+		}
+		government = native_council_after
+	}
+}
+
+nhs_mod_government = {
+	OR = {
+		government = elysian_empire
+		government = senatorial_empire
+		government = elysian_kingdom
+		government = elysian_peoples_republic
+		government = spartan_kingdom
+		government = jarldom
+		government = althing_republic
+		government = varangian_guard
+		government = native_senate
+		government = elysian_patriarchy
+		government = elysian_patriarchy_2
+		government = native_council2
+		government = native_council_after
+		government = spartan_army
+		government = spartan_sovreignty
+		government = elysian_absolute_empire
+		is_native_council_of_fed = yes
+	}
+}
+
+nhs_na_sail_lakes_rivers = {
+	OR = {
+		area = erikson_river_area
+		province_id = 1490
+		province_id = 1659
+		province_id = 1660
+		province_id = 1661
+		province_id = 1662
+		province_id = 1663
+	}
+}
+
+nhs_homelands = {
+	OR = {
+		province_id = 2550
+		province_id = 952
+		province_id = 950
+		province_id = 2554
+		province_id = 953
+		province_id = 957
+	}
+}
+
+nhs_homelands_no_capital = {
+	OR = {
+		province_id = 2550
+		province_id = 952
+		province_id = 950
+		province_id = 2554
+		province_id = 957
+	}
+}
+
+elysia_is_hellenic = {
+	OR = {
+		AND = {
+			exists = NHS
+			NHS = {
+				religion = pantheon_worship
+			}
+		}
+		AND = {
+			exists = ELY
+			ELY = {
+				religion = pantheon_worship
+			}
+		}
+	}
+}
+
+elysia_is_orthodox = {
+	OR = {
+		AND = {
+			exists = NHS
+			NHS = {
+				religion = orthodox
+			}
+		}
+		AND = {
+			exists = ELY
+			ELY = {
+				religion = orthodox
+			}
+		}
+	}
+}
+
+trading_with_markland = {
+	custom_trigger_tooltip = {
+	tooltip = trading_with_markland_tooltip
+		OR = {
+			AND = {
+				exists = ELY
+				ELY = {
+					OR = {
+						has_country_modifier = nhs_vov_markland_deal
+						has_country_modifier = nhs_vov_markland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = NHS
+				NHS = {
+					OR = {
+						has_country_modifier = nhs_vov_markland_deal
+						has_country_modifier = nhs_vov_markland_deal_after
+					}
+				}
+			}
+		}
+	}
+}
+
+trading_with_helluland = {
+	custom_trigger_tooltip = {
+	tooltip = trading_with_helluland_tooltip
+		OR = {
+			AND = {
+				exists = ELY
+				ELY = {
+					OR = {
+						has_country_modifier = nhs_vov_helluland_deal
+						has_country_modifier = nhs_vov_helluland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = NHS
+				NHS = {
+					OR = {
+						has_country_modifier = nhs_vov_helluland_deal
+						has_country_modifier = nhs_vov_helluland_deal_after
+					}
+				}
+			}
+		}
+	}
+}
+
+trading_with_vinland = {
+	custom_trigger_tooltip = {
+		tooltip = trading_with_vinland_tooltip
+		OR = {
+			AND = {
+				exists = ELY
+				ELY = {
+					OR = {
+						has_country_modifier = nhs_vov_vinland_deal
+						has_country_modifier = nhs_vov_vinland_deal_after
+					}
+				}
+			}
+			AND = {
+				exists = NHS
+				NHS = {
+					OR = {
+						has_country_modifier = nhs_vov_vinland_deal
+						has_country_modifier = nhs_vov_vinland_deal_after
+					}
+				}
+			}	
+		}
+	}
+}
+
+has_heralds = {
+	custom_trigger_tooltip = {
+		tooltip = has_heralds_tooltip
+		OR = {
+			NOT = { 
+				OR = {
+					tag = MSG
+					tag = MSN
+				}
+			}
+			has_global_flag = msg_heralds_done
+		}
+		OR = {
+			AND = {
+				NOT = { total_development = 500 }
+				OR = {
+					NOT = { has_country_modifier = nhs_heralds1 }
+					NOT = { has_country_modifier = nhs_heralds2 }
+					NOT = { has_country_modifier = nhs_heralds3 }
+				}
+			}
+			AND = {
+				total_development = 500
+				OR = {
+					NOT = { has_country_modifier = nhs_heralds1 }
+					NOT = { has_country_modifier = nhs_heralds2 }
+					NOT = { has_country_modifier = nhs_heralds3 }
+					NOT = { has_country_modifier = nhs_heralds4 }
+				}
+			}
+		}
+	}
+}
+
+has_no_decision = {
+	custom_trigger_tooltip = {
+		tooltip = has_heralds_decision_tooltip
+		NOT = { has_country_flag = nhs_herals_open_decision }
+	}
+}
+
+
+
+idea_groups_allowed = {
+	OR = {
+		NOT = {
+			tag = NHS
+            tag = ELY
+			tag = MSN
+            tag = MSG
+            tag = SHQ
+            tag = CTM
+            tag = MRK
+            tag = HLL
+            tag = VIN
+            tag = JOM
+			AND = {
+				culture_group = elysian_group
+				NOT = { tag = VGD }
+			}
+			AND = {
+				culture_group = norse_g
+				NOT = { tag = VGD }
+			}
+			AND = {
+				is_subject = no
+				tag = VGD
+			}
+            culture_group = spartakian_group 
+			primary_culture = elysian
+		}
+		OR = {
+			has_idea = a_new_start
+			has_idea = strangers_in_a_strange_world
+			has_idea = inspiring_leaders
+        }
+		has_country_flag = nhs_ideas_unlocked
+	}
+}
+native_culture = {
+	OR = {
+		culture = elysameric
+		culture = skraeling
+		culture_group = sonoran
+		culture_group = muskogean
+		culture_group = central_algonquian
+		culture_group = eastern_algonquian
+		culture_group = iroquoian
+		culture_group = siouan
+		culture_group = plains_algonquian
+		culture_group = caddoan
+		culture_group = na_dene
+		culture_group = penutian
+		culture_group = eskaleut
+		culture_group = tonkawan
+		culture_group = calusan
+		culture_group = carribean
+	}
+}
+
+mesoamerican_native_culture = {
+	OR = {
+		culture = pochteca
+		culture = macehualtin
+		culture = tlacotin
+		culture_group = central_american
+		culture_group = otomanguean
+		culture_group = maya
+		culture_group = maya
+		culture = miskito
+		culture = arawak
+		culture = carib
+	}
+}
+
+southamerican_native_culture = {
+	OR = {
+		culture = muisca
+		culture = cara
+		culture = maipurean
+		culture = carib
+		culture = guajiro
+		culture_group = maranon
+		culture_group = andean_group
+		culture_group = je_tupi
+		culture_group = je
+		culture_group = mataco
+		culture_group = araucanian
+	}
+}
+
+
+native_culture_primary = {
+	OR = {
+		primary_culture = elysameric
+		primary_culture = skraeling
+		culture_group = sonoran
+		culture_group = muskogean
+		culture_group = central_algonquian
+		culture_group = eastern_algonquian
+		culture_group = iroquoian
+		culture_group = siouan
+		culture_group = plains_algonquian
+		culture_group = caddoan
+		culture_group = na_dene
+		culture_group = penutian
+		culture_group = eskaleut
+		culture_group = tonkawan
+		culture_group = calusan
+		culture_group = carribean
+	}
+}
+
+mesoamerican_native_culture_primary = {
+	OR = {
+		primary_culture = pochteca
+		primary_culture = macehualtin
+		primary_culture = tlacotin
+		culture_group = central_american
+		culture_group = otomanguean
+		culture_group = maya
+		culture_group = maya
+		primary_culture = miskito
+		primary_culture = arawak
+		primary_culture = carib
+	}
+}
+
+southamerican_native_culture_primary = {
+	OR = {
+		primary_culture = muisca
+		primary_culture = cara
+		primary_culture = maipurean
+		primary_culture = carib
+		primary_culture = guajiro
+		culture_group = maranon
+		culture_group = andean_group
+		culture_group = je_tupi
+		culture_group = je
+		culture_group = mataco
+		culture_group = araucanian
+	}
+}
+
+
+revoked_privileges = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_natives_no_privileges_tooltip
+		has_country_flag = nhs_natives_no_privileges
+	}
+}
+
+not_revoked_privileges = {
+	custom_trigger_tooltip = {
+		tooltip = nhs_natives_privileges_tooltip
+		NOT = { has_country_flag = nhs_natives_no_privileges }
+	}
+}
+
+nhs_exploration_ideas = {
+	OR = {
+		has_idea_group = exploration_ideas
+		has_idea_group = development_ideas
+		has_idea_group = discovery_ideas
+		has_idea_group = domination_ideas
+	}
+}
+
+mesoamerican_landing_provinces = {
+	OR = {
+		province_id = 2647
+		province_id = 2630
+		province_id = 2631
+		province_id = 2650
+		province_id = 845 
+		province_id = 2651 
+		province_id = 2633
+		province_id = 2652
+		province_id = 2634
+		province_id = 2632
+	}
+}
+
+nhs_is_patriarchate = {
+	OR = {
+		has_province_modifier = nhs2_orthodox_patriarchate
+		has_province_modifier = patriarchate_of_the_west
+		has_province_modifier = patriarchate_of_the_south
+		has_province_modifier = patriarchate_of_the_far_west
+		has_province_modifier = patriarchate_of_the_north
+		has_province_modifier = ecumenical_patriarch_modifier
+		
+		has_province_modifier = nhs2_orthodox_patriarchate_off
+		has_province_modifier = patriarchate_of_the_west_off
+		has_province_modifier = patriarchate_of_the_south_off
+		has_province_modifier = patriarchate_of_the_far_west_off
+		has_province_modifier = patriarchate_of_the_north_off
+		has_province_modifier = ecumenical_patriarch_modifier_off
+		
+		has_province_modifier = nhs2_orthodox_patriarchate_cus
+		has_province_modifier = patriarchate_of_the_west_cus
+		has_province_modifier = patriarchate_of_the_south_cus
+		has_province_modifier = patriarchate_of_the_far_west_cus
+		has_province_modifier = patriarchate_of_the_north_cus
+		has_province_modifier = ecumenical_patriarch_modifier_cus
+		
+		has_province_modifier = nhs2_orthodox_patriarchate_for
+		has_province_modifier = patriarchate_of_the_west_for
+		has_province_modifier = patriarchate_of_the_south_for
+		has_province_modifier = patriarchate_of_the_far_west_for
+		has_province_modifier = patriarchate_of_the_north_for
+		has_province_modifier = ecumenical_patriarch_modifier_for
+	}
+}
+
+nhs_eligible_for_patriarchate = {
+	OR = {
+		NOT = {
+			calc_true_if = {
+				all_province = {
+					OR = {
+						has_province_modifier = nhs2_orthodox_patriarchate
+						has_province_modifier = patriarchate_of_the_west
+						has_province_modifier = patriarchate_of_the_south
+						has_province_modifier = patriarchate_of_the_far_west
+						has_province_modifier = patriarchate_of_the_north
+						has_province_modifier = ecumenical_patriarch_modifier
+						has_province_modifier = nhs2_orthodox_patriarchate_off
+						has_province_modifier = patriarchate_of_the_west_off
+						has_province_modifier = patriarchate_of_the_south_off
+						has_province_modifier = patriarchate_of_the_far_west_off
+						has_province_modifier = patriarchate_of_the_north_off
+						has_province_modifier = ecumenical_patriarch_modifier_off
+						has_province_modifier = nhs2_orthodox_patriarchate_cus
+						has_province_modifier = patriarchate_of_the_west_cus
+						has_province_modifier = patriarchate_of_the_south_cus
+						has_province_modifier = patriarchate_of_the_far_west_cus
+						has_province_modifier = patriarchate_of_the_north_cus
+						has_province_modifier = ecumenical_patriarch_modifier_cus
+						has_province_modifier = nhs2_orthodox_patriarchate_for
+						has_province_modifier = patriarchate_of_the_west_for
+						has_province_modifier = patriarchate_of_the_south_for
+						has_province_modifier = patriarchate_of_the_far_west_for
+						has_province_modifier = patriarchate_of_the_north_for
+						has_province_modifier = ecumenical_patriarch_modifier_for					
+					}
+				}
+				amount = 5
+			}
+		}
+		has_global_flag = nhs_expanded_patriarchate
+		NOT = {
+			any_province = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier_for
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = ecumenical_patriarch_modifier_off
+					has_province_modifier = ecumenical_patriarch_modifier
+				}
+				owner = {
+					religion = elysian_orthodoxy
+				}
+			}
+		}
+	}
+}
+
+nhs_eligible_for_patriarchate1 = {
+	OR = {
+		NOT = {
+			calc_true_if = {
+				all_province = {
+					OR = {
+						has_province_modifier = nhs2_orthodox_patriarchate
+						has_province_modifier = patriarchate_of_the_west
+						has_province_modifier = patriarchate_of_the_south
+						has_province_modifier = patriarchate_of_the_far_west
+						has_province_modifier = patriarchate_of_the_north
+						has_province_modifier = ecumenical_patriarch_modifier
+						has_province_modifier = nhs2_orthodox_patriarchate_off
+						has_province_modifier = patriarchate_of_the_west_off
+						has_province_modifier = patriarchate_of_the_south_off
+						has_province_modifier = patriarchate_of_the_far_west_off
+						has_province_modifier = patriarchate_of_the_north_off
+						has_province_modifier = ecumenical_patriarch_modifier_off
+						has_province_modifier = nhs2_orthodox_patriarchate_cus
+						has_province_modifier = patriarchate_of_the_west_cus
+						has_province_modifier = patriarchate_of_the_south_cus
+						has_province_modifier = patriarchate_of_the_far_west_cus
+						has_province_modifier = patriarchate_of_the_north_cus
+						has_province_modifier = ecumenical_patriarch_modifier_cus
+						has_province_modifier = nhs2_orthodox_patriarchate_for
+						has_province_modifier = patriarchate_of_the_west_for
+						has_province_modifier = patriarchate_of_the_south_for
+						has_province_modifier = patriarchate_of_the_far_west_for
+						has_province_modifier = patriarchate_of_the_north_for
+						has_province_modifier = ecumenical_patriarch_modifier_for					
+					}
+				}
+				amount = 6
+			}
+		}
+		has_global_flag = nhs_expanded_patriarchate
+		NOT = {
+			any_province = {
+				OR = {
+					has_province_modifier = ecumenical_patriarch_modifier_for
+					has_province_modifier = ecumenical_patriarch_modifier_cus
+					has_province_modifier = ecumenical_patriarch_modifier_off
+					has_province_modifier = ecumenical_patriarch_modifier
+				}
+				owner = {
+					religion = elysian_orthodoxy
+				}
+			}
+		}
+	}
+}
+
+nhs_is_ecumenical = {
+	OR = {
+		has_province_modifier = ecumenical_patriarch_modifier_for
+		has_province_modifier = ecumenical_patriarch_modifier_cus
+		has_province_modifier = ecumenical_patriarch_modifier_off
+		has_province_modifier = ecumenical_patriarch_modifier
+	}
+}
+
+nhs_is_north = {
+	OR = {
+		has_province_modifier = patriarchate_of_the_north_for
+		has_province_modifier = patriarchate_of_the_north_cus
+		has_province_modifier = patriarchate_of_the_north_off
+		has_province_modifier = patriarchate_of_the_north
+	}
+}
+
+nhs_is_west = {
+	OR = {
+		has_province_modifier = patriarchate_of_the_west_for
+		has_province_modifier = patriarchate_of_the_west_cus
+		has_province_modifier = patriarchate_of_the_west_off
+		has_province_modifier = patriarchate_of_the_west
+	}
+}
+
+nhs_is_far_west = {
+	OR = {
+		has_province_modifier = patriarchate_of_the_far_west_for
+		has_province_modifier = patriarchate_of_the_far_west_cus
+		has_province_modifier = patriarchate_of_the_far_west_off
+		has_province_modifier = patriarchate_of_the_far_west
+	}
+}
+
+nhs_is_south = {
+	OR = {
+		has_province_modifier = patriarchate_of_the_south_for
+		has_province_modifier = patriarchate_of_the_south_cus
+		has_province_modifier = patriarchate_of_the_south_off
+		has_province_modifier = patriarchate_of_the_south
+	}
+}
+
+nhs_is_elysian_patriarchy = {
+	OR = {
+		government = elysian_patriarchy
+		government = elysian_patriarchy_2
+	}
+}
+
+nhs_one_of_the_vikings_not_worthy = {
+	OR = {
+		AND = {
+			tag = HLL
+			MRK = {
+				AND = {
+					NOT = { owns = 2573 }
+					NOT = { owns = 980 }
+					NOT = { owns = 981 }
+					NOT = { owns = 982 }
+					NOT = { owns = 994 }
+				}
+			}
+		}
+		AND = {
+			tag = MRK
+			HLL = {
+				AND = {
+					NOT = { owns = 997 }
+					NOT = { owns = 996 }
+					NOT = { owns = 2575 }
+					NOT = { owns = 2574 }
+					NOT = { owns = 994 }
+				}
+			}
+		}
+	}
+}
+
+nhs_one_of_the_vikings_op = {
+	OR = {
+		AND = {
+			tag = MRK
+			HLL = { NOT = { num_of_cities = 11 } }
+			OR = {
+				MRK = { num_of_cities = 20 }
+				HLL = {
+					is_at_war = yes
+					NOT = { war_score = -50 }
+				}
+			}
+		}
+		AND = {
+			tag = HLL
+			MRK = { NOT = { num_of_cities = 11 } }
+			OR = {
+				HLL = { num_of_cities = 20 }
+				MRK = {
+					is_at_war = yes
+					NOT = { war_score = -50 }
+				}
+			}
+		}
+	}
+}
+
+nhs_exarch_land = {
+	OR = {
+		AND = {
+			ROOT = { tag = EEA }
+			region = caucasia_region
+		}
+		AND = {
+			ROOT = { tag = EEB }
+			region = british_isles_region
+		}
+		AND = {
+			ROOT = { tag = EEC }
+			region = scandinavia_region
+		}
+		AND = {
+			ROOT = { tag = EED }
+			region = carpathia_region
+		}
+		AND = {
+			ROOT = { tag = EEE }
+			region = egypt_region
+		}
+		AND = {
+			ROOT = { tag = EEF }
+			region = maghreb_region
+		}
+		AND = {
+			ROOT = { tag = EEG }
+			region = france_region
+		}
+		AND = {
+			ROOT = { tag = EEH }
+			region = iberia_region
+		}
+		AND = {
+			ROOT = { tag = EEI }
+			region = south_german_region
+		}
+		AND = {
+			ROOT = { tag = EEJ }
+			region = baltic_region
+		}
+		AND = {
+			ROOT = { tag = EEL }
+			OR = {
+				region = russia_region
+				region = ural_region
+			}
+		}
+		AND = {
+			ROOT = { tag = EEM }
+			region = ruthenia_region
+		}
+		AND = {
+			ROOT = { tag = EEO }
+			region = mashriq_region
+		}
+		AND = {
+			ROOT = { tag = EER }
+			region = italy_region
+		}
+		AND = {
+			ROOT = { tag = EES }
+			region = crimea_region
+		}
+		AND = {
+			ROOT = { tag = EET }
+			region = low_countries_region
+		}
+		AND = {
+			ROOT = { tag = EEU }
+			region = north_german_region
+			NOT = { area = bohemia_area }
+			NOT = { area = erzgebirge_area }
+		}
+		AND = {
+			ROOT = { tag = EEV }
+			OR = {
+				region = poland_region
+				area = bohemia_area
+				area = erzgebirge_area
+			}
+		}
+	}
+}

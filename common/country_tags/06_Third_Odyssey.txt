@@ -1,0 +1,2 @@
+# Third_Odyssey BTM country tags
+GCC = "countries/Great_Clans_Confederacy.txt"

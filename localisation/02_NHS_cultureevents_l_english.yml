@@ -1,0 +1,35 @@
+﻿l_english:
+ nhs2_cultureevents.1.t:0 "The Scythian Plains"
+ nhs2_cultureevents.1.d:0 "As our people move into the western half of this great continent we call Elysium, the landscape has slowly changed from being dotted with small hills and woodland and has given way to great plains and grasslands. Large numbers of wild horses that either escaped or were released over the years have flourished in such an environment, and seem to have colonised this continent better than we have! The natives on the plains have adapted the horse into their nomadic lifestyle at an astonishing rate, and even now they thunder across the plains, much like the Scythian nomads of old. Their speed and use of ambush tactics make them difficult to subdue by warfare; therefore, our colonists remain in the minority, content to trade with them from fortified settlements."
+ nhs2_cultureevents.1.a:0 "Maybe one day we can teach these natives our ways."
+
+ nhs2_cultureevents.4.t:0 "The Skythiai, subdued at last?"
+ nhs2_cultureevents.4.d:0 "After many years, life on the plains is still much the same as it has always been: men riding horses, competing with rival tribes, hunting buffalo, and trading. However, there is one big difference, those men riding the horses? they are Elysians, or at least their forefathers were. Over time, the colonists slowly left their settlements and adopted the ways of the nomads. Now known as the Skythiai, they still (basically) follow the same religion as we do, and still (kind of) pledge allegiance to the Emperor, they are just a bit rough around the edges." 
+ nhs2_cultureevents.4.a:0 "It's a Wild West out there!"
+ 
+ nhs2_cultureevents.8.t:0 "The Borealian Lakes"
+ nhs2_cultureevents.8.d:0 "The Elysians of the North, or 'Borealians' as we call them, are a tough people who are largely reliant on the so called Borealian Lakes, a series of huge inland lakes with a large amount of fish and agricultural land. Because of this, the Borelians have come to supply a large percentage of the Empire's fish stock, as well as being proficient in the use of barges for shipping food and supplies along rivers. Their winters are often tough, and while the majority of Elysians in the area travel down south with their families for the winter, the true Borealians remain in the north year round."
+ nhs2_cultureevents.8.a:0 "They are a strong people."
+ 
+ nhs2_cultureevents.10.t:0 "The Hesperidian Fields"
+ nhs2_cultureevents.10.d:0 "The Hesperidians are the descendants of those colonists who were brave (or crazy) enough to cross the great Atlas Mountains, which stretch from north to south at the far end of the Skythian Plains. The great distance from the capital and the presence of the Atlas Mountains have led to the Hesperidians adopting a much more laid back stance in relation to strict adherence to tradition and religion. As a result, many of our more rebellious and free thinking subjects have flocked there in the thousands."
+ nhs2_cultureevents.10.a:0 "Good"
+ 
+ nhs2_cultureevents.13.t:0 "Senate seat in $PROVINCENAME$"
+ nhs2_cultureevents.13.d:0 "After much deliberation, the Elysian Senate has agreed to accept the province of $PROVINCENAME$ into its midst, giving it the same rights and responsibilities as the homeland provinces."
+ nhs2_cultureevents.13.a:0 "Welcome to the Senate!"
+ 
+ nhs2_cultureevents.15.t:0 "The Kykladian Islands"
+ nhs2_cultureevents.15.d:0 "The islands to the south of our great nation, known as Kykladia to our people, have undergone quite a shift in recent decades. Being relatively isolated from the rest of the Empire and their Elyshi cousins has allowed our settlers in the region to adopt some of the strange customs of from the native Taino, such as a form of ancestor and nature worship mixed with our own beliefs. This has lead to the creation of many smaller communities divided along ancestral lines, with a focus on maritime trade and piracy."
+ nhs2_cultureevents.151.d:0 "The islands that we call home, known as Kykladia to our people, have undergone quite a shift in recent decades. Being relatively isolated from the Empire and Elyshi cousins has allowed our settlers in the region to adopt some of the strange customs of from the native Taino, such as a form of ancestor and nature worship mixed with our own beliefs. This has lead to the creation of many smaller communities divided along ancestral lines, with a focus on maritime trade and piracy."
+ nhs2_cultureevents.15.a:0 "As long as they serve the capital"
+ 
+ nhs2_cultureevents.17.t:0 "Hyperboreans"
+ nhs2_cultureevents.17.d:0 "Descendants of the Borealians, the Hyperboreans sought to escape the long, dark winters around the Borealian Lakes. Believing in the Greek myth that spoke of a paradise far to the north where the sun never sets, a large number of colonists set out on a long journey. They eventually settled on the north-western coast of Elysium, an area blessed with a relatively warm climate."
+ nhs2_cultureevents.17.a:0 "Ok"
+
+ 
+ nhs_lakonian_spartans_title:0 "The Lakonian Spartans"
+ nhs_lakonian_spartans_desc:0 "With our conquering of lands that once belonged to the Spartans, we must somehow integrate our 'cousins' back into the empire. The presence of the heretical Aztlan cult aside, the people living in these lands are extremely independent, and do not appreciate our presence here. The best we can do is give them some autonomy and hope they don't rebel too often."
+
+ 
